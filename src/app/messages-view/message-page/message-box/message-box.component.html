@@ -1,0 +1,12 @@
+<div class="p-2 messageBox lead"> 
+    <p [ngClass]="{'messText' : true, 
+                   'list-group-item-success' : messStatus === 'news',
+                   'list-group-item-danger' : messStatus === 'olds'
+                  }"
+                  (click)="messRead()"> 
+                  {{messText}}
+        
+    </p>
+  <!-- <p class = "messText" [ngStyle]="{color: getColor()}"> {{messText}}</p>
+  <input type="text" class="form-control" [(ngModel)]="messText"> -->
+  </div>
