@@ -1,13 +1,13 @@
 <div class = "row">
     <div class = "date"> 
-      <p> {{weathDate}} </p>
+      <p> {{date}} </p>
     </div> 
-    <img class = "weathIcon" ng-src="weathIcon"/>
+    <img class = "weathIcon" [src]="weathIconPath"/>
     <div class = "weathText"> 
-      <p> <strong class = "temp"> 18&deg;C </strong> {{weathText}} </p>
+      <p> <strong class = "temp"> {{temperature}} </strong> {{weathText}} </p>
     </div>
-    <img class = "windIcon" ng-src="windIcon"/>
+    <img class = "windIcon" [src]="windIconPath"/>
     <div class = "wind">	
-      <p class = "windText"> haha </p>
+      <p class = "windText"> {{windText}} </p>
     </div>  
   </div>

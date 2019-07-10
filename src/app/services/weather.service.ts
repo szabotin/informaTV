@@ -1,35 +1,41 @@
-export class WeatherService {
-    weath = [   
-        {
-            text : "Sunny",
-            iconPath : "./icons/sun.png"
-        },
-        {
-            text : "Sunny and cloudy",
-            iconPath : "./icons/sunCloud.png"
-        }, 
-        {
-            text : "Cloudy",
-            iconPath : "./icons/cloud.png"
-        }, 
-        {
-            text : "Rainy",
-            iconPath : "./icons/sun.png"
-        }
-    ]
+import { Subject } from 'rxjs/Subject';
 
-    windy = [
+export class WeatherService {
+    
+    boxContentSubject = new Subject<any[]>() ;
+    
+    weathBoxContent = [   
         {
-            text : "No wind",
-            iconPath : "./icons/wind.png"
+            date : "2.00 pm",
+            weathText : "Sunny",
+            weathIconPath : "assets/weather/sun.png",
+            windText : "No wind",
+            temp : "18°C"
         },
         {
-            text : "Windy",
-            iconPath : "./icons/wind.png"
-        },
+            date : "3.00 pm",
+            weathText : "Sunny and cloudy",
+            weathIconPath : "assets/weather/sunCloud.png",
+            windText : "Windy",
+            temp : "16°C"             
+        }, 
         {
-            text : "Very windy",
-            iconPath : "./icons/wind.png"
+            date : "4.00 pm",
+            weathText : "Cloudy",
+            weathIconPath : "assets/weather/cloud.png",
+            windText : "Very windy",
+            temp : "14°C"
+        }, 
+        {
+            date : "5.00 pm",
+            weathText : "Rainy",
+            weathIconPath : "assets/weather/sun.png",
+            windText : "No wind",
+            temp : "18°C"
         }
-    ]
+    ] ;
+
+    emitBoxContentSubject() {
+        this.boxContentSubject.next(this.weathBoxContent.slice()) ;
+    }
 }

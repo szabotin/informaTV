@@ -9,16 +9,18 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class MessagePageComponent implements OnInit {
 
-  lastUpdate = new Promise(
-    (resolve, reject) => {
-      const date = new Date();
-      setTimeout( 
-        () => {
-          resolve(date);
-        }, 2000
-      ) ;
-    }
-  )
+  // Example of Promise if we have to code it
+  
+  // lastUpdate = new Promise(
+    // (resolve, reject) => {
+      // const date = new Date();
+      // setTimeout( 
+        // () => {
+          // resolve(date);
+        // }, 2000
+      // ) ;
+    // }
+  // )
 
   messages: any[] ;
   messageSubscription: Subscription ;
@@ -37,5 +39,4 @@ export class MessagePageComponent implements OnInit {
   ngOnDestroy() {
     this.messageSubscription.unsubscribe()
   }
-
 }

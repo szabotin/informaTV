@@ -1,8 +1,11 @@
 <div class="container-fluid" id="main">
     <app-weather-box style="height:25%;"
-    *ngFor="let b of bars ; let i = index" 
-    [weathText]="b.text"
-    [weathIcon]="b.iconPath">
+    *ngFor="let wbc of boxContent ; let i = index" 
+    [date]= "wbc.date"
+    [weathText]="wbc.weathText"
+    [weathIconPath]="wbc.weathIconPath"
+    [windText]="wbc.windText"
+    [temperature]="wbc.temp">
     </app-weather-box>
 </div>
 <!-- media query below 1325px -->

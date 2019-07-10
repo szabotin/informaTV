@@ -1,17 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MessagesService } from '../../../services/messages.service';
+
 @Component({
   selector: 'app-message-box',
   templateUrl: './message-box.component.html',
   styleUrls: ['../../../../reset.scss', '../../../app.component.scss',  '../../messages-view.component.scss', './message-box.component.scss']
 })
+
 export class MessageBoxComponent implements OnInit {
 
   @Input() messText : string ;
   @Input() messStatus : string ;
   @Input() messIndex : number ;
 
-  constructor(private messService: MessagesService) { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -43,18 +45,18 @@ export class MessageBoxComponent implements OnInit {
     }
   }*/
 
-  getStatus() {
-    this.messStatus ;
-  }
+  // getStatus() {
+  //   this.messStatus ;
+  // }
 
-  getMessage() {
-    this.messText ;
-  }
+  // getMessage() {
+  //   this.messText ;
+  // }
 
-  onClic() {
-    console.log("hey") ;
-    //this.style.color = "blue" ;
-  }
+  // onClic() {
+  //   console.log("hey") ;
+  //   //this.style.color = "blue" ;
+  // }
 
 
 }

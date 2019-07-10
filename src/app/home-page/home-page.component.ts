@@ -1,15 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { HomeService } from '../services/home.service';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['../../reset.scss', '../app.component.scss', './home-page.component.scss']
 })
+
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  links: any[] ;
+  linkSubscription: Subscription ;
+
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.linkSubscription = this.homeService.linkSubject.subscribe(
+      (links: any[]) => {
+        this.links = links ;
+      }
+    ) ;
+    this.homeService.emitLinkSubject() ;
+  }
+
+  ngOnDestroy() {
+    this.linkSubscription.unsubscribe()
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-weather-page',
@@ -8,14 +9,23 @@ import { WeatherService } from '../services/weather.service';
 })
 export class WeatherPageComponent implements OnInit {
 
-  bars: any[] ;
+  boxContent: any[] ;
+  boxContentSubscription: Subscription ;
 
-  constructor(private weatherService:  WeatherService) { 
-
+  constructor(private weatherService:  WeatherService) {
   }
 
   ngOnInit() {
-      this.bars = this.weatherService.weath ;
+    this.boxContentSubscription = this.weatherService.boxContentSubject.subscribe(
+      (boxContent: any[]) => {
+        this.boxContent = boxContent ;
+      }
+    ) ;
+    this.weatherService.emitBoxContentSubject() ;
+  }
+
+  ngOnDestroy() {
+    this.boxContentSubscription.unsubscribe()
   }
 
 }

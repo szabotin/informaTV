@@ -31,30 +31,30 @@ export class MessagesService {
         this.messageSubject.next(this.mess.slice()) ;
     }
 
-    allMessNewToOld() {
-        for (let m of this.mess) {
-            m.status = "old" ;
-        }
-        this.emitMessageSubject() ;
-    }
+    // allMessNewToOld() {
+    //     for (let m of this.mess) {
+    //         m.status = "old" ;
+    //     }
+    //     this.emitMessageSubject() ;
+    // }
 
-    messNewToOld(index : number) {
-        this.mess[index].status = "old" ;
-        this.emitMessageSubject() ;
-    }
+    // messNewToOld(index : number) {
+    //     this.mess[index].status = "old" ;
+    //     this.emitMessageSubject() ;
+    // }
 
-    messNew(message) {
-        message.status = "new" ;
-        this.emitMessageSubject() ;
-    }
+    // messNew(message) {
+    //     message.status = "new" ;
+    //     this.emitMessageSubject() ;
+    // }
 
-    addMessage (text: string) {
-        const messageObject = {
-          text : '',
-          status : "new"
-        } ;
-        messageObject.text = text ;
-        this.mess.push(messageObject) ;
-        this.emitMessageSubject()
-    }
+    // addMessage (text: string) {
+    //     const messageObject = {
+    //       text : '',
+    //       status : "new"
+    //     } ;
+    //     messageObject.text = text ;
+    //     this.mess.push(messageObject) ;
+    //     this.emitMessageSubject()
+    // }
 }

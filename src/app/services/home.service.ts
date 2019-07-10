@@ -10,27 +10,27 @@ export class HomeService {
     private links = [
         {
             title : "messages",
-            linkRef : 'newMessages',
+            linkRef : 'messages-page', // refer to the app-routing.module.ts
             imageLink : 'assets/home/mess.png'
         },
         {
             title : "events",
-            linkRef : 'events-page',
+            linkRef : 'events-page', // refer to the app-routing.module.ts
             imageLink : 'assets/home/cal.png'
         },
         {
             title : "reminders",
-            linkRef : 'reminders-page',
+            linkRef : 'reminders-page', // refer to the app-routing.module.ts
             imageLink : 'assets/home/memo.png'
         },
         {
             title : "weather",
-            linkRef : 'weather-page',
+            linkRef : 'weather-page', // refer to the app-routing.module.ts
             imageLink : 'assets/home/weather.png'
         },
         {
             title : "news",
-            linkRef : 'news-page',
+            linkRef : 'news-page', // refer to the app-routing.module.ts
             imageLink : 'assets/home/news.png'
         }
     ] ;

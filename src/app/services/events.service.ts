@@ -1,4 +1,4 @@
-export class EventService {
+export class EventsService {
     private events = [
         {
           title : 'Aoife will come this afternoon',
@@ -13,5 +13,4 @@ export class EventService {
           link : 'event3'
         }
     ] ;
-
 }

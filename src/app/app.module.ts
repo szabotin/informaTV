@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms' ; // utilise le 2 way binding
 
 import { AppRoutingModule } from './app-routing.module';
+
+// Components
+
 import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { HomeLinkComponent } from './home-page/home-link/home-link.component';
 import { MessagesViewComponent } from './messages-view/messages-view.component';
 import { MessagePageComponent } from './messages-view/message-page/message-page.component';
 import { MessageBoxComponent } from './messages-view/message-page/message-box/message-box.component';
@@ -20,11 +24,15 @@ import { RemindersBoxComponent } from './reminders-page/reminders-box/reminders-
 import { NewsPageComponent } from './news-page/news-page.component';
 import { NewsBoxComponent } from './news-page/news-box/news-box.component';
 
-import { PagesService } from './services/pages.service';
-import { MessagesService } from './services/messages.service';
-import { WeatherService } from './services/weather.service';
-import { HomeLinkComponent } from './home-page/home-link/home-link.component';
+// services
 
+import { EventsService } from './services/events.service';
+import { HomeService } from './services/home.service';
+import { MessagesService } from './services/messages.service';
+// import { NewsService } from './services/news.service';
+import { PagesService } from './services/pages.service';
+// import { RemindersService } from './services/reminders.service';
+import { WeatherService } from './services/weather.service';
 
 @NgModule({
   declarations: [
@@ -45,12 +53,15 @@ import { HomeLinkComponent } from './home-page/home-link/home-link.component';
     NewsBoxComponent,
     HomeLinkComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule
   ],
-  providers: [PagesService, MessagesService, WeatherService],
+  
+  providers: [EventsService, HomeService, MessagesService, /*NewsService*/, PagesService, /*RemindersService*/, WeatherService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

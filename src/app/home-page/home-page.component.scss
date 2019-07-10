@@ -1,0 +1,19 @@
+.menCol {
+	margin : 2.5% ;
+	background-color : purple ;
+}
+
+.menCol:hover, .icon:hover {
+	background-color : orange ;
+}
+
+.itemTitle {
+	color : white ;
+}
+
+.icon {
+	width : 90% ;
+	height : 90% ;
+	background-color : purple ;
+	padding-bottom : 10% ;
+}

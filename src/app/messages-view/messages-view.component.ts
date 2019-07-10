@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import { MessagePageComponent } from './message-page/message-page.component' ;
 
 @Component({
   selector: 'app-messages-view',

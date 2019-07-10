@@ -9,26 +9,17 @@ import { WeatherService } from '../../services/weather.service';
 
 export class WeatherBoxComponent implements OnInit {
 
+  @Input() date : string ;
   @Input() weathText : string ;
-  @Input() weathIcon : string ;
-  @Input() weathDate : string ;
-  /*@Input() windText : string ;
-  @Input() windIcon : string ;*/
-  
-  dateNumber : number = 5 ;
+  @Input() weathIconPath : string ;
+  @Input() windText : string ;
+  @Input() temperature : string ;
+
+  windIconPath : string = "assets/weather/wind.png" ;
 
   constructor(private weathService : WeatherService) {
-
   }
 
   ngOnInit() {
-    if (this.dateNumber > 12) {
-      this.dateNumber -= 12 ;
-      this.weathDate = this.dateNumber.toString().concat(".00 pm") ; ;
-    }
-    else {
-      this.weathDate = this.dateNumber + ".00 am" ;
-    }
-
   }
 }

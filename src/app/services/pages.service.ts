@@ -1,9 +1,7 @@
-import { Observable } from 'rxjs/Observable' ;
 import { Subject } from 'rxjs/Subject';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import 'rxjs/Rx' ;
 import { Injectable } from '@angular/core';
+import 'rxjs/Rx' ;
 
 @Injectable()
 
@@ -16,31 +14,31 @@ export class PagesService {
           title : 'Messages',
           linkPage : 'newMessages',
           bigMain : true, 
-          footerMessage : 'Use the arrows to navigate'
+          footerMessage : 'Here are your messages'
         },
         {
           title : 'Weather',
           linkPage : 'weather-page',
           bigMain : true, 
-          footerMessage : 'Use the arrows to navigate'
+          footerMessage : 'You can see the weather'
         },
         {
           title : 'Events',
           linkPage : 'events-page',
           bigMain : true, 
-          footerMessage : 'Use the arrows to navigate'
+          footerMessage : 'Here are your events'
         },
         {
           title : 'News',
           linkPage : 'news-page',
           bigMain : true, 
-          footerMessage : 'Use the arrows to navigate'
+          footerMessage : 'Let\'s see some news now' 
         },
         {
           title : 'Reminders',
           linkPage : 'reminders-page',
           bigMain : true, 
-          footerMessage : 'Use the arrows to navigate'
+          footerMessage : 'Don\'t forget that ! '
         },
         {
           title : 'Home',

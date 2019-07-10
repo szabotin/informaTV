@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
 import { Subscription } from 'rxjs/Subscription';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class HomeLinkComponent implements OnInit {
   links: any[] ;
   linksSubscription: Subscription ;
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService, private router: Router) { }
 
   ngOnInit() {
     this.linksSubscription = this.homeService.linkSubject.subscribe(
@@ -25,6 +26,10 @@ export class HomeLinkComponent implements OnInit {
       }
     ) ;
     this.homeService.emitLinkSubject() ;
+  }
+
+  onClic() {
+    this.router.navigate([this.reference]) ;
   }
 
 }
