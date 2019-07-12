@@ -1,5 +1,11 @@
 <!-- <p>Mis à jour : {{ lastUpdate | async | date: 'short' | lowercase}} </p> -->
-<div class="container-fluid">
+
+<app-header 
+  [idPage] = "indexPage">
+</app-header>
+
+<main>
+  <div class="container-fluid">
     <div class="d-flex chatBox">
       <app-message-box style="height:20%;"
                     *ngFor="let m of messages[0].page ; let i = index" 
@@ -9,3 +15,4 @@
       </app-message-box>				
     </div>
   </div>
+</main>

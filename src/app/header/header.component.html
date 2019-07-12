@@ -1,6 +1,11 @@
-<header class="container-fluid" *ngIf="!bigMain">
+<header class="container-fluid" *ngIf="!getBigMain()" style="height:80vh">
   <div class="container">
     <h1> {{titlePage}}</h1>
   </div>
 </header>
 
+<header class="container-fluid" *ngIf="getBigMain()" style="height:20vh">
+  <div class="container">
+    <h1> {{titlePage}}</h1>
+  </div>
+</header>

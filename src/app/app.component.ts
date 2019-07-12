@@ -42,16 +42,17 @@ export class AppComponent implements OnInit {
 
     // go to a special page during development (toggle comment and just change the number of index page you want in the pagesService)
 
-    // this.indexPage = 5 ;
-    // this.router.navigate([this.pages[this.indexPage].linkPage]) ;
-
-    this.router.navigate(['home-page']) ;
+    this.indexPage = 0 ;
+    this.router.navigate([this.pages[this.indexPage].linkPage]) ;
+   
+    // this.router.navigate(['messages-view']) ;
+    // console.log(this.pages[this.indexPage].bigMain) ;
 
   }
 
   autoRouting(nbPages: number) {
       
-    this.router.navigate(['newMessages']) ;
+    this.router.navigate(['message-page']) ;
 
     var ms = 1500 ;
     const counter = Observable.interval(ms) ;

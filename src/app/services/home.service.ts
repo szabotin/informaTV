@@ -27,12 +27,12 @@ export class HomeService {
             title : "weather",
             linkRef : 'weather-page', // refer to the app-routing.module.ts
             imageLink : 'assets/home/weather.png'
-        },
-        {
-            title : "news",
-            linkRef : 'news-page', // refer to the app-routing.module.ts
-            imageLink : 'assets/home/news.png'
         }
+        // {
+        //     title : "news",
+        //     linkRef : 'news-page', // refer to the app-routing.module.ts
+        //     imageLink : 'assets/home/news.png'
+        // }
     ] ;
 
     emitLinkSubject() {

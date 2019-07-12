@@ -11,41 +11,47 @@ export class PagesService {
 
     private pages = [
         {
-          title : 'Messages',
-          linkPage : 'messages-page',
-          bigMain : false, 
-          footerMessage : 'Here are your messages'
+          title: 'Messages',
+          linkPage: 'message-page',
+          bigMain: 'false',
+          footerMessage: 'Here are your messages'
         },
         {
-          title : 'Weather',
-          linkPage : 'weather-page',
-          bigMain : false, 
-          footerMessage : 'You can see the weather'
+          title: 'Weather',
+          linkPage: 'weather-page',
+          bigMain: 'true',
+          footerMessage: 'You can see the weather'
         },
         {
-          title : 'Events',
-          linkPage : 'events-page',
-          bigMain : false, 
-          footerMessage : 'Here are your events'
+          title: 'Events',
+          linkPage: 'events-page',
+          bigMain: 'true',
+          footerMessage: 'Here are your events'
         },
         {
-          title : 'News',
-          linkPage : 'news-page',
-          bigMain : false, 
-          footerMessage : 'Let\'s see some news now' 
+          title: 'News',
+          linkPage: 'news-page',
+          bigMain: 'true',
+          footerMessage: 'Let\'s see some news now' 
         },
         {
-          title : 'Reminders',
-          linkPage : 'reminders-page',
-          bigMain : false, 
-          footerMessage : 'Don\'t forget that ! '
+          title: 'Reminders',
+          linkPage: 'reminders-page',
+          bigMain: 'true',
+          footerMessage: 'Don\'t forget that ! '
         },
         {
-          title : 'Home',
-          linkPage : 'home-page',
-          bigMain : false, 
-          footerMessage : 'Use the arrows to navigate'
-        }
+          title: 'Home',
+          linkPage: 'home-page',
+          bigMain: 'false',
+          footerMessage: 'Use the arrows to navigate'
+        },
+        {
+          title: 'Messages',
+          linkPage: 'message-view',
+          bigMain: 'false',
+          footerMessage: 'Choose the person you want to see the messages'
+        },
     ] ;
 
     constructor(private router: Router) {}

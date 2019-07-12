@@ -1,13 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <body>
-    <app-header 
-        [bigMain] = "pages[indexPage].bigMain"
-        [titlePage] = "pages[indexPage].title">
-    </app-header>
-
-    <main>
-        <router-outlet></router-outlet>
-    </main>
+    <router-outlet></router-outlet>
 
     <app-footer
         [bigMain] = "pages[indexPage].bigMain"

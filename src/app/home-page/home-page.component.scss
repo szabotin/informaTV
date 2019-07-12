@@ -1,31 +1,17 @@
-#main {
-	height: 40vh;
+.container-fluid {
 	display: flex;
-	justify-content: center;
+	flex-direction: row;
 	align-items: center;
-}
-
-.menCol {
-	padding-top: 10px;
-	margin-left: 6vh;
-    margin-right: 6vh;
-    width: 22vh;
-    height: 25vh;
-}
-
-.menCol:hover{
-	background-color: orange;
-}
-
-.itemTitle {
-	margin-bottom: 10px;
-	background-color: purple;
-	color: white;
+	justify-content: center;
+	height: 100%;
 }
 
 .icon {
-	width: 100%;
-	height: 100%;
-	padding-bottom: 10%;
-	background-color: purple;
+	width: 80%;
+	height: 60%;
+}
+
+.itemTitle {
+	height: 20%;
+	margin-bottom: 10%;
 }

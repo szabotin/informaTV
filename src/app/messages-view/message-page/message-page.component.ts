@@ -26,10 +26,13 @@ export class MessagePageComponent implements OnInit {
   
   messages: any[] ;
   messageSubscription: Subscription ;
+  indexPage: number ;
 
   constructor(private messService: MessagesService) { }
 
   ngOnInit() {
+    this.indexPage = 0 ;
+    
     this.messageSubscription = this.messService.messageSubject.subscribe(
       (messages: any[]) => {
         this.messages = messages ;

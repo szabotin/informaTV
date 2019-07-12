@@ -1,6 +1,5 @@
-<div class="container-fluid" id="main">
-  <app-home-link class = "menCol" 
-                *ngFor="let l of links ; let i = index"
+<div class="container-fluid">
+  <app-home-link *ngFor="let l of links ; let i = index"
                 [linkTitle]="l.title"
                 [reference]="l.linkRef"
                 [imageSource]="l.imageLink"

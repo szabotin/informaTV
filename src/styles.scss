@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.icon {
+	width: 100%;
+	height: 80%;
+}
+
+.itemTitle {
+	padding-top: 8px;
+	height: 20%;
+}
+
+.menCol {
+	width: 22vh;
+    height: 30vh;
+	background-color: purple;
+	margin-left: 6vh;
+    margin-right: 6vh;
+}
+
+.menCol:hover{
+	background-color: orange;
+}
