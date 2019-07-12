@@ -1,11 +1,11 @@
 <!-- <p>Mis à jour : {{ lastUpdate | async | date: 'short' | lowercase}} </p> -->
-<div class="container-fluid" id="main">
+<div class="container-fluid">
     <div class="d-flex chatBox">
       <app-message-box style="height:20%;"
-                    *ngFor="let m of messages ; let i = index" 
+                    *ngFor="let m of messages[0].page ; let i = index" 
                     [messText]="m.text"
                     [messStatus]="m.status"
-                    [messIndex]="i">
+                    [messIndex]="i"> <!-- don't care now -->
       </app-message-box>				
     </div>
   </div>

@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-message-box',
   templateUrl: './message-box.component.html',
-  styleUrls: ['../../../../reset.scss', '../../../app.component.scss',  '../../messages-view.component.scss', './message-box.component.scss']
+  styleUrls: ['../../../../reset.scss', '../../../app.component.scss', '../message-page.component.scss', './message-box.component.scss']
 })
 
 export class MessageBoxComponent implements OnInit {

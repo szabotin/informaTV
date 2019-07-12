@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HomeLinkComponent } from './home-page/home-link/home-link.component';
 import { MessagesViewComponent } from './messages-view/messages-view.component';
+import { MessageLinkComponent } from './messages-view/message-link/message-link.component';
 import { MessagePageComponent } from './messages-view/message-page/message-page.component';
 import { MessageBoxComponent } from './messages-view/message-page/message-box/message-box.component';
 import { WeatherPageComponent } from './weather-page/weather-page.component';
@@ -41,6 +42,7 @@ import { WeatherService } from './services/weather.service';
     HomePageComponent,
     FooterComponent,
     MessagesViewComponent,
+    MessageLinkComponent,
     MessagePageComponent,
     MessageBoxComponent,
     WeatherPageComponent,
@@ -52,6 +54,7 @@ import { WeatherService } from './services/weather.service';
     NewsPageComponent,
     NewsBoxComponent,
     HomeLinkComponent,
+    MessageLinkComponent,
   ],
 
   imports: [

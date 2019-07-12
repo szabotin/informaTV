@@ -7,7 +7,7 @@ export class HomeService {
 
     linkSubject = new Subject<any[]>() ;
 
-    private links = [
+    private links = [ // delete or comment one bracket to delete one item or not
         {
             title : "messages",
             linkRef : 'messages-page', // refer to the app-routing.module.ts

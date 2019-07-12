@@ -12,32 +12,32 @@ export class PagesService {
     private pages = [
         {
           title : 'Messages',
-          linkPage : 'newMessages',
-          bigMain : true, 
+          linkPage : 'messages-page',
+          bigMain : false, 
           footerMessage : 'Here are your messages'
         },
         {
           title : 'Weather',
           linkPage : 'weather-page',
-          bigMain : true, 
+          bigMain : false, 
           footerMessage : 'You can see the weather'
         },
         {
           title : 'Events',
           linkPage : 'events-page',
-          bigMain : true, 
+          bigMain : false, 
           footerMessage : 'Here are your events'
         },
         {
           title : 'News',
           linkPage : 'news-page',
-          bigMain : true, 
+          bigMain : false, 
           footerMessage : 'Let\'s see some news now' 
         },
         {
           title : 'Reminders',
           linkPage : 'reminders-page',
-          bigMain : true, 
+          bigMain : false, 
           footerMessage : 'Don\'t forget that ! '
         },
         {

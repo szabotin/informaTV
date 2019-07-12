@@ -1,33 +1,5 @@
-main {
-	background-color : #1A0050 ;
-}
-
-a:hover {
-	text-decoration : none ;
-}
-
-#header{
-	height : 30vh ;
-	display : flex ;
-	justify-content : center ;
-	align-items : center ;
-}
-
-#main {
-	height : 40vh ;
-	display : flex ;
-	justify-content : center ;
-	align-items : center ;
-}
-
-#footer {
-	height : 30vh ;
-	display : flex ;
-	justify-content : center ;
-	align-items : center ;
-}
-
-.container-fluid {
-	color : white ;
-	text-align : center ;
+body {
+	background-color: #1A0050;
+	color: white;
+	text-align: center;
 }

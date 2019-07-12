@@ -10,8 +10,8 @@ import { NewsPageComponent } from './news-page/news-page.component';
 
 
 const routes: Routes = [
-  { path: 'newMessages', component: MessagePageComponent},
-  { path: 'messages-page', component: MessagesViewComponent },
+  { path: 'messages-page', component: MessagePageComponent },
+  { path: 'messages-view', component: MessagesViewComponent },
   { path: 'weather-page', component: WeatherPageComponent },
   { path: 'events-page', component: EventsPageComponent },
   { path: 'reminders-page', component: RemindersPageComponent },

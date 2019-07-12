@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'app-message-page',
   templateUrl: './message-page.component.html',
-  styleUrls: ['../../../reset.scss', '../../app.component.scss', '../messages-view.component.scss', './message-page.component.scss']
+  styleUrls: ['../../../reset.scss', '../../app.component.scss', './message-page.component.scss']
 })
 export class MessagePageComponent implements OnInit {
 
@@ -13,15 +13,17 @@ export class MessagePageComponent implements OnInit {
   
   // lastUpdate = new Promise(
     // (resolve, reject) => {
-      // const date = new Date();
+      // const date = new Date() ;
       // setTimeout( 
         // () => {
-          // resolve(date);
+          // resolve(date) ;
         // }, 2000
       // ) ;
     // }
   // )
 
+  // indexByName: number ;
+  
   messages: any[] ;
   messageSubscription: Subscription ;
 
@@ -31,6 +33,8 @@ export class MessagePageComponent implements OnInit {
     this.messageSubscription = this.messService.messageSubject.subscribe(
       (messages: any[]) => {
         this.messages = messages ;
+        // name = 
+        // this.indexByName = this.messages.findIndex(name) ;
       }
     ) ;
     this.messService.emitMessageSubject() ;

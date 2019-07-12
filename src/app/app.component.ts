@@ -38,12 +38,15 @@ export class AppComponent implements OnInit {
       }
     )*/
 
-    //this.autoRouting(this.nbPages) ;
+    // this.autoRouting(this.nbPages) ;
 
     // go to a special page during development (toggle comment and just change the number of index page you want in the pagesService)
 
-    this.indexPage = 5 ;
-    this.router.navigate([this.pages[this.indexPage].linkPage]) ;
+    // this.indexPage = 5 ;
+    // this.router.navigate([this.pages[this.indexPage].linkPage]) ;
+
+    this.router.navigate(['home-page']) ;
+
   }
 
   autoRouting(nbPages: number) {

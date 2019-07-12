@@ -1,14 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<main>
-  <app-header 
-      [bigMain] = "pages[indexPage].bigMain"
-      [titlePage] = "pages[indexPage].title">
-  </app-header>
-  
-  <router-outlet></router-outlet>
-  
-  <app-footer
-      [bigMain] = "pages[indexPage].bigMain"
-      [footerMessage] = "pages[indexPage].footerMessage">
-  </app-footer>
-</main>
+<body>
+    <app-header 
+        [bigMain] = "pages[indexPage].bigMain"
+        [titlePage] = "pages[indexPage].title">
+    </app-header>
+
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+
+    <app-footer
+        [bigMain] = "pages[indexPage].bigMain"
+        [footerMessage] = "pages[indexPage].footerMessage">
+    </app-footer>
+</body>
