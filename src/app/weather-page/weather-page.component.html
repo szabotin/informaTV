@@ -1,21 +1,11 @@
-<app-header 
-  [headerHeight] = "hfHeight"
-  [headerMessage] = "hMessage">
-</app-header>
-
-<main class="container-fluid">
+<div class="container-fluid" id="main">
     <app-weather-box style="height:25%;"
-    *ngFor="let bc of boxContent ; let i = index" 
-    [date]= "bc.date"
-    [weathText]="bc.weathText"
-    [weathIconPath]="bc.weathIconPath"
-    [windText]="bc.windText"
-    [temperature]="bc.temp">
+    *ngFor="let wbc of boxContent ; let i = index" 
+    [date]= "wbc.date"
+    [weathText]="wbc.weathText"
+    [weathIconPath]="wbc.weathIconPath"
+    [windText]="wbc.windText"
+    [temperature]="wbc.temp">
     </app-weather-box>
-</main>
-
-<app-footer
-    [footerHeight] = "hfHeight"
-    [footerMessage] = "fMessage">
-</app-footer>
+</div>
 <!-- media query below 1325px -->

@@ -1,20 +1,18 @@
 <!-- <p>Mis à jour : {{ lastUpdate | async | date: 'short' | lowercase}} </p> -->
 
 <app-header 
-  [headerHeight] = "hfHeight"
-  [headerMessage] = "hMessage">
+  [idPage] = "indexPage">
 </app-header>
 
-<main class="container-fluid chatBox">
-    <app-message-box style="height:20%"
-                  *ngFor="let m of messages[0].page ; let i = index" 
-                  [messText]="m.text"
-                  [messStatus]="m.status"
-                  [messIndex]="i"> <!-- don't care now -->
-    </app-message-box>
+<main>
+  <div class="container-fluid">
+    <div class="d-flex chatBox">
+      <app-message-box style="height:20%;"
+                    *ngFor="let m of messages[0].page ; let i = index" 
+                    [messText]="m.text"
+                    [messStatus]="m.status"
+                    [messIndex]="i"> <!-- don't care now -->
+      </app-message-box>				
+    </div>
+  </div>
 </main>
-
-<app-footer
-    [footerHeight] = "hfHeight"
-    [footerMessage] = "fMessage">
-</app-footer>

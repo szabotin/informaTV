@@ -8,15 +8,11 @@
 	border-radius : 20px ;
 }
 
-main {
+#main {
 	height : 60vh ;
 	display : flex ;
 	justify-content : center ;
 	align-items : center ;
-}
-
-.newsLink{
-	text-decoration : underline ;
 }
 
 .photo  {
@@ -35,3 +31,6 @@ main {
 	font-weight : 400 ;
 }
 
+.newsLink{
+	text-decoration : underline ;
+}

@@ -1,13 +1,19 @@
 .messageBox {
-	height: 100%;
-	padding: /* top */ 1% /* right */ 5% /* bottom */ 1% /* left */ 5% ;
-	margin-bottom: 0;
-	background-color: white;
-	color: black;
-	font-size: 200%;
-	font-weight: 700;
-	border: 2px solid black;
-	display: flex;
-	align-items: center;
-	text-align: left;
+	height : 100% ;
+	margin-bottom : 0 ;
+	padding-left : 5% ;
+	padding-bottom : 1% ;
+	padding-top : 1% ;
+	background-color : white ;
+	text-align : left ;
+	border : 2px solid black ;
+	color: black ;
+	display : flex ;
+	align-items : center ;
+	font-size : 200% ;
+	font-weight : 700 ;
+}
+
+.messText {
+	margin : 0 ;
 }

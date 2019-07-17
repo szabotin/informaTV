@@ -1,17 +1,7 @@
-<app-header 
-  [headerHeight] = "hfHeight"
-  [headerMessage] = "hMessage">
-</app-header>
-
-<main class="container-fluid">
+<div class="container-fluid">
   <app-home-link *ngFor="let l of links ; let i = index"
                 [linkTitle]="l.title"
                 [reference]="l.linkRef"
                 [imageSource]="l.imageLink"
   ></app-home-link>
-</main>
-
-<app-footer
-    [footerHeight] = "hfHeight"
-    [footerMessage] = "fMessage">
-</app-footer>
+</div>
