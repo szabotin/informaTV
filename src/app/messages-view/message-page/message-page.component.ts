@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from '../../services/messages.service';
 import { Subscription } from 'rxjs/Subscription';
+import { PagesService } from 'src/app/services/pages.service';
 
 @Component({
   selector: 'app-message-page',
@@ -21,26 +22,48 @@ export class MessagePageComponent implements OnInit {
       // ) ;
     // }
   // )
-
-  // indexByName: number ;
   
+  hfHeight: string ;
+  hMessage: string ;
+  fMessage: string ;
+
+  pages: any[] ;
+  indexPage: number ;
+  pagesSubscription: Subscription ;
+
   messages: any[] ;
   messageSubscription: Subscription ;
-  indexPage: number ;
 
-  constructor(private messService: MessagesService) { }
+  constructor(private pagesService: PagesService, private messService: MessagesService) { }
 
   ngOnInit() {
-    this.indexPage = 0 ;
-    
+
     this.messageSubscription = this.messService.messageSubject.subscribe(
       (messages: any[]) => {
         this.messages = messages ;
-        // name = 
-        // this.indexByName = this.messages.findIndex(name) ;
       }
     ) ;
+
     this.messService.emitMessageSubject() ;
+
+    this.pagesSubscription = this.pagesService.pageSubject.subscribe(
+      (pages: any[]) => {
+        this.pages = pages ;
+      }
+    ) ;
+
+    this.pagesService.emitPageSubject() ;
+
+    // Get the indexPage from the title page 
+    // Be carful -> refer to the title page in pages.service.ts
+
+    this.indexPage = this.pagesService.getIndexOfPageByLink('message-page', this.pages) ;
+
+    // Get the title of the page, the height of the header and footer, and the footer message from the tab "pages"
+
+    this.hfHeight = this.pages[this.indexPage]['headerAndFooterHeight'] ;
+    this.hMessage = this.pages[this.indexPage]['title'] ;
+    this.fMessage = this.pages[this.indexPage]['footerMessage'] ;
   }
 
   ngOnDestroy() {

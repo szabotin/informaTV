@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PagesService } from '../services/pages.service';
-import { Subscription } from 'rxjs/Subscription';
+/* import { PagesService } from '../services/pages.service';
+import { Subscription } from 'rxjs/Subscription'; */
 
 @Component({
   selector: 'app-header',
@@ -9,20 +9,20 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() idPage: number ;
+  @Input() headerHeight: string ;
+  @Input() headerMessage: string ;
 
-  pages: any[] ;
-  pagesSubscription: Subscription ;
+  /* pages: any[] ;
+  pagesSubscription: Subscription ; 
   
   titlePage: string ;
-  bigMain: boolean ;
+  bigMain: boolean ; */
 
-  constructor(private pagesService: PagesService) {
-    console.log(this.bigMain) ;
+  constructor(/* private pagesService: PagesService */) {
   }
 
   ngOnInit() {
-    this.pagesSubscription = this.pagesService.pageSubject.subscribe(
+    /* this.pagesSubscription = this.pagesService.pageSubject.subscribe(
       (pages: any[]) => {
         this.pages = pages ;
       }
@@ -30,12 +30,12 @@ export class HeaderComponent implements OnInit {
     this.pagesService.emitPageSubject() ;
 
     this.titlePage = this.pages[this.idPage].title ;
-    this.bigMain = this.pages[this.idPage].bigMain ;
+    this.bigMain = this.pages[this.idPage].bigMain ; */
   }
 
-  getBigMain() {
+ /*  getBigMain() {
     console.log(this.bigMain) ;
     return this.bigMain ;
-  }
+  } */
 
 }

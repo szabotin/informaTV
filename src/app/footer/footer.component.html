@@ -1,10 +1,10 @@
-<footer class="container-fluid" *ngIf="bigMain">
+<footer class="container-fluid" *ngIf="footerHeight==='big'" style="height:30vh">
   <div class="container">
     <h1 class="footerMessage"> {{ footerMessage }} </h1>
   </div>
 </footer>
 
-<footer class="container-fluid" *ngIf="!bigMain" style="height:20vh">
+<footer class="container-fluid" *ngIf="footerHeight==='little'" style="height:20vh">
   <div class="container">
     <h1 class="footerMessage"> {{ footerMessage }} </h1>
   </div>

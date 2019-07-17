@@ -1,4 +1,9 @@
-<div class="container-fluid" id="main">
+<app-header 
+  [headerHeight] = "hfHeight"
+  [headerMessage] = "hMessage">
+</app-header>
+
+<main class="container-fluid">
   <div class = "row"> 
       <p> Don't forget to take your pills after lunch ! </p>
   </div>
@@ -8,4 +13,9 @@
   <div class = "row"> 
       <p> You will have an appointment with the doctor on Monday at 9am. </p>
   </div>
-</div>
+</main>
+
+<app-footer
+    [footerHeight] = "hfHeight"
+    [footerMessage] = "fMessage">
+</app-footer>

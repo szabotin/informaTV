@@ -6,83 +6,79 @@ import 'rxjs/Rx' ;
 @Injectable()
 
 export class PagesService {
-    pageSubject = new Subject<any[]>() ;
-    //counterSubscription: Subscription ;
+  pageSubject = new Subject<any[]>() ;
 
-    private pages = [
-        {
-          title: 'Messages',
-          linkPage: 'message-page',
-          bigMain: 'false',
-          footerMessage: 'Here are your messages'
-        },
-        {
-          title: 'Weather',
-          linkPage: 'weather-page',
-          bigMain: 'true',
-          footerMessage: 'You can see the weather'
-        },
-        {
-          title: 'Events',
-          linkPage: 'events-page',
-          bigMain: 'true',
-          footerMessage: 'Here are your events'
-        },
-        {
-          title: 'News',
-          linkPage: 'news-page',
-          bigMain: 'true',
-          footerMessage: 'Let\'s see some news now' 
-        },
-        {
-          title: 'Reminders',
-          linkPage: 'reminders-page',
-          bigMain: 'true',
-          footerMessage: 'Don\'t forget that ! '
-        },
-        {
-          title: 'Home',
-          linkPage: 'home-page',
-          bigMain: 'false',
-          footerMessage: 'Use the arrows to navigate'
-        },
-        {
-          title: 'Messages',
-          linkPage: 'message-view',
-          bigMain: 'false',
-          footerMessage: 'Choose the person you want to see the messages'
-        },
-    ] ;
-
-    constructor(private router: Router) {}
-
-    emitPageSubject() {
-        this.pageSubject.next(this.pages.slice()) ;
+  private pages = [
+    {
+      title: 'Messages with',
+      linkPage: 'message-page',
+      headerAndFooterHeight: 'little',
+      footerMessage: 'Here are your messages'
+    },
+    {
+      title: 'Weather',
+      linkPage: 'weather-page',
+      headerAndFooterHeight: 'little',
+      footerMessage: 'You can see the weather'
+    },
+    {
+      title: 'Events',
+      linkPage: 'events-page',
+      headerAndFooterHeight: 'little',
+      footerMessage: 'Here are your events'
+    },
+    {
+      title: 'News',
+      linkPage: 'news-page',
+      headerAndFooterHeight: 'little',
+      footerMessage: 'Use the arrows to change news' 
+    },
+    {
+      title: 'Reminders',
+      linkPage: 'reminders-page',
+      headerAndFooterHeight: 'little',
+      footerMessage: 'Don\'t forget that ! '
+    },
+    {
+      title: 'Home',
+      linkPage: 'home-page',
+      headerAndFooterHeight: 'big',
+      footerMessage: 'Use the arrows to change item and click to go into'
+    },
+    {
+      title: 'Messages',
+      linkPage: 'messages-view',
+      headerAndFooterHeight: 'big',
+      footerMessage: 'Choose the person you want to see the messages'
     }
+  ] ;
 
-    changeTitle(index: number, newTitle: string) {
-        this.pages[index].title = newTitle ;
-        this.emitPageSubject() ;
-    }
+  constructor(private router: Router) {}
 
-    
+  emitPageSubject() {
+      this.pageSubject.next(this.pages.slice()) ;
+  }
 
-    /*autoRouting(nbPages: number) {
-      
-      //this.router.navigate(['newMessages']) ;
-
-      var ms = 4000 ;
-      const counter = Observable.interval(ms) ;
-      this.counterSubscription = counter.subscribe(
-      (value : number) => {
-        if (value < nbPages) {
-          
-          this.router.navigate([this.pages[value].linkPage]) ;
-        }
-        else {
-          this.router.navigate('') ;
+  getIndexOfPageByTitle(pageTitle, tab) {
+      for(var i = 0 ; i < tab.length ; i++){
+        if (tab[i]['title'] == pageTitle) {
+          return i ;
         }
       }
-      ) ;
-    }*/
+        return -1 ;
+    }
+
+  getIndexOfPageByLink(pageTitle, tab) {
+      for(var i = 0 ; i < tab.length ; i++){
+        if (tab[i]['linkPage'] == pageTitle) {
+          return i ;
+        }
+      }
+        return -1 ;
+  }
+
+    // changeTitle(index: number, newTitle: string) {
+    //     this.pages[index].title = newTitle ;
+    //     this.emitPageSubject() ;
+    // }
 }

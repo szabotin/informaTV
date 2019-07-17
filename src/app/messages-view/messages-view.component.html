@@ -1,5 +1,10 @@
 <!-- Exemple of pipes if we need someday : <p>Mis à jour : {{ lastUpdate | async | date: 'short' | lowercase}} </p> -->
-<div class="container-fluid" id="main">
+<app-header 
+  [headerHeight] = "hfHeight"
+  [headerMessage] = "hMessage">
+</app-header>
+
+<main class="container-fluid">
     <app-message-link *ngFor="let m of messagesLinks ; let i = index"
         [indexLink]="i"
         [name]="m.name"
@@ -7,4 +12,9 @@
 
         (click)="navigatePageMessage()">
     </app-message-link>
-</div>
+</main>
+
+<app-footer
+    [footerHeight] = "hfHeight"
+    [footerMessage] = "fMessage">
+</app-footer>

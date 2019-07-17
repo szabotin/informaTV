@@ -10,7 +10,7 @@ export class HomeService {
     private links = [ // delete or comment one bracket to delete one item or not
         {
             title : "messages",
-            linkRef : 'messages-page', // refer to the app-routing.module.ts
+            linkRef : 'messages-view', // refer to the app-routing.module.ts
             imageLink : 'assets/home/mess.png'
         },
         {
