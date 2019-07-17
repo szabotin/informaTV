@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     ) ;
     this.pagesService.emitPageSubject() ;
 
-    this.nbPages = this.getNbPages() ; 
+    this.nbPages = 6 ; 
 
     this.indexPage = 0 ;
     
@@ -40,13 +40,10 @@ export class AppComponent implements OnInit {
 
     // this.autoRouting(this.nbPages) ;
 
-    // go to a special page during development (toggle comment and just change the number of index page you want in the pagesService)
+    // go to a special page during development (toggle comment and just change the number of index page you want in the pagesService). Delete when finish to develop
 
-    this.indexPage = 0 ;
-    this.router.navigate([this.pages[this.indexPage].linkPage]) ;
-   
-    // this.router.navigate(['messages-view']) ;
-    // console.log(this.pages[this.indexPage].bigMain) ;
+    this.indexPage = 4 ;
+    this.router.navigate( [this.pages[this.indexPage].linkPage] ) ;
 
   }
 
@@ -54,19 +51,16 @@ export class AppComponent implements OnInit {
       
     this.router.navigate(['message-page']) ;
 
-    var ms = 1500 ;
-    const counter = Observable.interval(ms) ;
+    var ms = 1200 ;
+    const counter = Observable.interval(ms).take(nbPages - 1) ;
     this.counterSubscription = counter.subscribe(
-    (value : number) => {
-      this.indexPage = value + 1 ;
-      if (value < nbPages - 1) {
+      (value : number) => {
         this.router.navigate([this.pages[value + 1].linkPage]) ;
-      }
-      else {
-        this.router.navigate(['']) ;
-        this.indexPage = nbPages - 1 ;
-      }
-    }
+      },
+      function (err) {
+        console.log('Error: ' + err) ;
+      },
+      function () { console.log("terminé !") }
     ) ;
   }
 
