@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { PagesService } from './services/pages.service';
-import { Observable } from 'rxjs/Observable';
+//import { PagesService } from './services/pages.service';
+// import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
   indexPage: number ;
   nbPages:number ;
 
-  constructor(private pagesService: PagesService, private router: Router) {
+  constructor(/* private pagesService: PagesService, */ private router: Router) {
   }
 
-  ngOnInit() {
+   ngOnInit() {/*
     this.pagesSubscription = this.pagesService.pageSubject.subscribe(
       (pages: any[]) => {
         this.pages = pages ;
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
 
     this.nbPages = 6 ; 
 
-    this.indexPage = 0 ;
+    this.indexPage = 0 ; */
     
     /*autoRoutings = new Promise(
       (resolve, reject) => {
@@ -42,12 +42,13 @@ export class AppComponent implements OnInit {
 
     // go to a special page during development (toggle comment and just change the number of index page you want in the pagesService). Delete when finish to develop
 
-    this.indexPage = 4 ;
-    this.router.navigate( [this.pages[this.indexPage].linkPage] ) ;
+    // this.indexPage = 4 ;
+    // this.router.navigate( [this.pages[this.indexPage].linkPage] ) ;
+    this.router.navigate( ['home-page'] ) ;
 
   }
 
-  autoRouting(nbPages: number) {
+/*   autoRouting(nbPages: number) {
       
     this.router.navigate(['message-page']) ;
 
@@ -70,5 +71,5 @@ export class AppComponent implements OnInit {
 
   getNbPages() {
     return this.pages.length ;
-  }
+  }  */
 }

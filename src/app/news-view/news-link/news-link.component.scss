@@ -1,0 +1,11 @@
+.newsIcon {
+    height: 20vw;
+    width: 20vw;
+    margin: 0 5vw 0 5vw;
+    border: 10px solid purple;
+    border-radius: 20px;
+}
+
+.newsIcon:hover {
+    border: 10px solid orange;
+}

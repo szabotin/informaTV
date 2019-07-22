@@ -9,35 +9,33 @@ export class HomeService {
 
     private links = [ // delete or comment one bracket to delete one item or not
         {
-            title : "messages",
-            linkRef : 'messages-view', // refer to the app-routing.module.ts
-            imageLink : 'assets/home/mess.png'
+            title : "Messages",
+            imageLink : 'assets/home/mess.png',
+            linkRef : 'messages-view' // refer to the app-routing.module.ts
         },
         {
-            title : "events",
-            linkRef : 'events-page', // refer to the app-routing.module.ts
-            imageLink : 'assets/home/cal.png'
+            title : "Events",
+            imageLink : 'assets/home/cal.png',
+            linkRef : 'events-view' // refer to the app-routing.module.ts
         },
         {
-            title : "reminders",
-            linkRef : 'reminders-page', // refer to the app-routing.module.ts
-            imageLink : 'assets/home/memo.png'
+            title : "Reminders",
+            imageLink : 'assets/home/memo.png',
+            linkRef : 'reminders' // refer to the app-routing.module.ts
         },
         {
-            title : "weather",
-            linkRef : 'weather-page', // refer to the app-routing.module.ts
-            imageLink : 'assets/home/weather.png'
+            title : "Weather",
+            imageLink : 'assets/home/weather.png',
+            linkRef : 'weather-view' // refer to the app-routing.module.ts
+        },
+        {
+            title : "News",
+            imageLink : 'assets/home/news.png',
+            linkRef : 'news-view' // refer to the app-routing.module.ts
         }
-        // {
-        //     title : "news",
-        //     linkRef : 'news-page', // refer to the app-routing.module.ts
-        //     imageLink : 'assets/home/news.png'
-        // }
     ] ;
 
     emitLinkSubject() {
         this.linkSubject.next(this.links.slice()) ;
     }
-
-    
 }

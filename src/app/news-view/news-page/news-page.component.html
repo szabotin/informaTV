@@ -1,0 +1,17 @@
+<app-header 
+  [headerHeight] = "hfHeight"
+  [headerMessage] = "hMessage">
+</app-header>
+
+<main class="container-fluid">
+    <div class="chatBox">
+        <img [src]="newsPages[0].photoPath" class = "photo"/> <!-- Try to get the index of the event -->
+        <div class="text"> {{newsPages[0].text}} </div>
+    </div>
+</main>
+
+<app-footer
+    [footerHeight] = "hfHeight"
+    [footerMessage] = "fMessage">
+</app-footer>
+<!-- media query below 1325px -->

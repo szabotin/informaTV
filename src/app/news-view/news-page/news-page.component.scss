@@ -1,0 +1,32 @@
+.chatBox  {
+	height : 100% ;
+	width : 90% ;
+	background-color : white ;
+	display : flex ;
+	align-items : center ;
+	border : 3px solid black ;
+	border-radius : 20px ;
+}
+
+main {
+	height : 60vh ;
+	display : flex ;
+	justify-content : center ;
+	align-items : center ;
+}
+
+.photo  {
+	width : 50% ;
+	height : 100% ;
+	padding : 4% ;
+	border : 2px solid black ;
+}
+
+.text  {
+	width : 50% ;
+	text-align : left ;
+	padding : 4% ;
+	height : 100% ;
+	color : black ;
+	font-weight : 700 ;
+}

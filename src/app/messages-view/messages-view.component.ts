@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { MessagesService } from '../services/messages.service';
-import { PagesService } from '../services/pages.service';
+import { MessagesService } from '../services/messages.services';
+// import { PagesService } from '../services/pages.service';
 
 @Component({
   selector: 'app-messages-view',
   templateUrl: './messages-view.component.html',
-  styleUrls: ['../../reset.scss', '../app.component.scss', './messages-view.component.scss']
+  styleUrls: ['../../reset.scss', './messages-view.component.scss']
 })
 export class MessagesViewComponent implements OnInit {
 
@@ -14,23 +14,23 @@ export class MessagesViewComponent implements OnInit {
   hMessage: string ;
   fMessage: string ;
 
-  pages: any[] ;
-  indexPage: number ;
-  pagesSubscription: Subscription ;
+  messPages: any[] ;
+  messPagesSubscription: Subscription ;
+  // indexPage: number ;
 
-  messagesLinks: any[] ;
-  messageSubscription: Subscription ;
+  // messagesLinks: any[] ;
+  // messageSubscription: Subscription ;
 
-  constructor(private pagesService: PagesService, private messService: MessagesService) { }
+  constructor(/* private pagesService: PagesService,*/ private messagesService: MessagesService) { }
 
   ngOnInit() {
-    this.messageSubscription = this.messService.messageSubject.subscribe(
-      (messagesLinks: any[]) => {
-        this.messagesLinks = messagesLinks ;
+    this.messPagesSubscription = this.messagesService.messPagesSubject.subscribe(
+      (messPages: any[]) => {
+        this.messPages = messPages ;
       }
     ) ;
-    this.messService.emitMessageSubject() ;
-
+    this.messagesService.emitMessageSubject() ;
+/*
     this.pagesSubscription = this.pagesService.pageSubject.subscribe(
       (pages: any[]) => {
         this.pages = pages ;
@@ -44,14 +44,15 @@ export class MessagesViewComponent implements OnInit {
 
     this.indexPage = this.pagesService.getIndexOfPageByLink('messages-view', this.pages) ;
 
-    // Get the title of the page, the height of the header and footer, and the footer message from the tab "pages"
+    // Get the title of the page, the height of the header and footer, and the footer message from the tab "pages" */
 
-    this.hfHeight = this.pages[this.indexPage]['headerAndFooterHeight'] ;
-    this.hMessage = this.pages[this.indexPage]['title'] ;
-    this.fMessage = this.pages[this.indexPage]['footerMessage'] ;
-  }
+    this.hMessage = 'Messages' ;
+    this.fMessage = 'Choose the person you want to see the messages with' ;
+    this.hfHeight = 'big' ;
+   }
 
-  ngOnDestroy() {
+  /* ngOnDestroy() {
     this.messageSubscription.unsubscribe()
-  }
+  } */
 }
+

@@ -5,13 +5,11 @@
 </app-header>
 
 <main class="container-fluid">
-    <app-message-link *ngFor="let m of messagesLinks ; let i = index"
-        [indexLink]="i"
+    <app-messages-link *ngFor="let m of messPages ; let i = index"
         [name]="m.name"
         [photoPath]="m.photoPath"
-
-        (click)="navigatePageMessage()">
-    </app-message-link>
+        [indexLink]="i">
+    </app-messages-link>
 </main>
 
 <app-footer

@@ -1,0 +1,17 @@
+<!-- Exemple of pipes if we need someday : <p>Mis à jour : {{ lastUpdate | async | date: 'short' | lowercase}} </p> -->
+<app-header 
+  [headerHeight] = "hfHeight"
+  [headerMessage] = "hMessage">
+</app-header>
+
+<main class="container-fluid">
+    <app-weather-link *ngFor="let wp of weatherPages ; let i = index"
+        [text]="wp.linkText"
+        [indexLink]="i">
+    </app-weather-link>
+</main>
+
+<app-footer
+    [footerHeight] = "hfHeight"
+    [footerMessage] = "fMessage">
+</app-footer>

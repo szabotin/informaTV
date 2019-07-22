@@ -1,0 +1,15 @@
+<app-header 
+  [headerHeight] = "hfHeight"
+  [headerMessage] = "hMessage">
+</app-header>
+
+<main class="container-fluid">
+    <app-news-link *ngFor="let np of newsPages ; let i = index"
+        [photoPath]="np.photoPath">
+    </app-news-link>
+</main>
+
+<app-footer
+    [footerHeight] = "hfHeight"
+    [footerMessage] = "fMessage">
+</app-footer>
