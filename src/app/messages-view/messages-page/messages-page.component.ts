@@ -10,24 +10,32 @@ import { MessagesService } from 'src/app/services/messages.services';
 
 export class MessagesPageComponent implements OnInit, OnDestroy {
   
-  hMessage = 'Messages with ' ;
-  fMessage = 'Here are your messages with ... Use the arrows to see others messages' ;
-  hfHeight = 'little' ;
+  hMessage: string ;
+  fMessage: string ;
+  name: string ;
+  index: number ;
 
+  hfHeight = 'little' ;
+  
   messPages: any[] ;
   messPagesSubscription: Subscription ;
-
+  
   constructor(private messagesService: MessagesService) { }
-
+  
   ngOnInit() {
-
+    
     this.messPagesSubscription = this.messagesService.messPagesSubject.subscribe(
       (messPages: any[]) => {
         this.messPages = messPages ;
       }
-    ) ;
-
+      ) ;
     this.messagesService.emitMessageSubject() ;
+    
+    this.index = this.messagesService.getPageIndex() ;
+    this.name = this.messPages[this.index].name ;
+
+    this.hMessage = 'Messages with ' + this.name ;
+    this.fMessage = 'Here are your messages with ' + this.name + '. Use the arrows to see others messages' ;
   }
 
   ngOnDestroy() {

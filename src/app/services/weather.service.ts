@@ -2,6 +2,8 @@ import { Subject } from 'rxjs/Subject';
 
 export class WeatherService {
 
+    private pageIndex: number ;
+    
     weatherPagesSubject = new Subject<any[]>() ;
     
     private weathPages = [ // delete or comment one bracket to delete one person or not
@@ -121,5 +123,17 @@ export class WeatherService {
 
     emitWeatherSubject() {
         this.weatherPagesSubject.next(this.weathPages.slice()) ;
+    }
+
+    getPageIndex() {
+        return this.pageIndex ;
+    }
+
+    setPageIndex(index: number) {
+        this.pageIndex = index ;
+    }
+
+    getLength() {
+        return this.weathPages.length ;
     }
 }

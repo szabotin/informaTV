@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { EventsService } from 'src/app/services/events.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,12 +10,14 @@ import { Router } from '@angular/router';
 
 export class EventsLinkComponent {
 
+  @Input() pageIndex: number ;
   @Input() photoPath: string ;
   
-  constructor(private router: Router) { 
+  constructor(private eventsService: EventsService, private router: Router) { 
   }
 
   onClic() {
+    this.eventsService.setPageIndex(this.pageIndex) ;
     this.router.navigate(['events-page']) ;
   }
 }

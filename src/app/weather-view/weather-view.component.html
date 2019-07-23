@@ -7,7 +7,7 @@
 <main class="container-fluid">
     <app-weather-link *ngFor="let wp of weatherPages ; let i = index"
         [text]="wp.linkText"
-        [indexLink]="i">
+        [indexPage]="i">
     </app-weather-link>
 </main>
 

@@ -35,6 +35,7 @@ export class MessagesLinkComponent implements OnInit, OnDestroy {
   }
 
   onClic() {
+    this.messService.setPageIndex(this.indexLink) ;
     this.router.navigate(['messages-page']) ;
   }
 

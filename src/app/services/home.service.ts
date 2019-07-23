@@ -5,37 +5,52 @@ import { Injectable } from '@angular/core';
 
 export class HomeService {
 
-    linkSubject = new Subject<any[]>() ;
+    sectionsSubject = new Subject<any[]>() ;
 
-    private links = [ // delete or comment one bracket to delete one item or not
+    private sections = [ // delete or comment one bracket to delete one item or not
         {
             title : "Messages",
-            imageLink : 'assets/home/mess.png',
-            linkRef : 'messages-view' // refer to the app-routing.module.ts
+            autoRouting : 'messages-page',
+            link : [{
+                ref : 'messages-view', // refer to the app-routing.module.ts
+                image : 'assets/home/mess.png'
+            }]
         },
         {
             title : "Events",
-            imageLink : 'assets/home/cal.png',
-            linkRef : 'events-view' // refer to the app-routing.module.ts
+            autoRouting : 'events-page',
+            link : [{
+                ref : 'events-view', // refer to the app-routing.module.ts
+                image : 'assets/home/cal.png'
+            }]
         },
-        {
-            title : "Reminders",
-            imageLink : 'assets/home/memo.png',
-            linkRef : 'reminders' // refer to the app-routing.module.ts
-        },
+        // {
+        //     title : "Reminders",
+        //     autoRouting : 'reminders',
+        //     link : [{
+        //         ref : 'reminders', // refer to the app-routing.module.ts
+        //         image : 'assets/home/memo.png'
+        //     }]
+        // },
         {
             title : "Weather",
-            imageLink : 'assets/home/weather.png',
-            linkRef : 'weather-view' // refer to the app-routing.module.ts
+            autoRouting : 'weather-page',
+            link : [{
+                ref : 'weather-view', // refer to the app-routing.module.ts
+                image : 'assets/home/weather.png'
+            }]
         },
         {
             title : "News",
-            imageLink : 'assets/home/news.png',
-            linkRef : 'news-view' // refer to the app-routing.module.ts
+            autoRouting : 'news-page',
+            link : [{
+                ref : 'news-view', // refer to the app-routing.module.ts
+                image : 'assets/home/news.png'
+            }]
         }
     ] ;
 
-    emitLinkSubject() {
-        this.linkSubject.next(this.links.slice()) ;
+    emitHomeSubject() {
+        this.sectionsSubject.next(this.sections.slice()) ;
     }
 }

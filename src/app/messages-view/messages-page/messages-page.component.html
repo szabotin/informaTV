@@ -7,10 +7,9 @@
 
 <main class="container-fluid chatBox">
     <app-message-box style="height:20%"
-                  *ngFor="let m of messPages[0].page ; let i = index" 
+                  *ngFor="let m of messPages[this.index].page" 
                   [messText]="m.text"
-                  [messStatus]="m.status"
-                  [messIndex]="i"> <!-- don't care now -->
+                  [messStatus]="m.status">
     </app-message-box>
 </main>
 

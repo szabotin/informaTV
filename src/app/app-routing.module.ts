@@ -11,6 +11,8 @@ import { RemindersComponent } from './reminders/reminders.component';
 import { WeatherViewComponent } from './weather-view/weather-view.component';
 import { WeatherPageComponent } from './weather-view/weather-page/weather-page.component';
 
+import { BlankPageComponent } from './blank-page/blank-page.component'; // Very bad code. Delete this component if we delete the bad code in app-component for autoRouting
+
 
 const routes: Routes = [
   { path: 'home-page', component: HomePageComponent },
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: 'weather-view', component: WeatherViewComponent },
   { path: 'weather-page', component: WeatherPageComponent },
   { path: '', component: HomePageComponent },
+  { path: 'blank-page', component: BlankPageComponent }, // Very bad code. Delete this component if we delete the bad code in app-component for autoRouting
   { path: '**', component: HomePageComponent }
 ];
 

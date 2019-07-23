@@ -4,10 +4,10 @@
 </app-header>
 
 <main class="container-fluid">
-  <app-home-link *ngFor="let l of links ; let i = index"
+  <app-home-link *ngFor="let l of links"
                 [linkTitle]="l.title"
-                [reference]="l.linkRef"
-                [imageSource]="l.imageLink"
+                [reference]="l.link[0].ref"
+                [imageSource]="l.link[0].image"
   ></app-home-link>
 </main>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-reminders',
@@ -6,14 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../reset.scss', './reminders.component.scss']
 })
 
-export class RemindersComponent implements OnInit {
+export class RemindersComponent {
 
   hMessage = 'Reminders' ;
   fMessage = 'Don\'t forget that ! Use the narrows to see other reminders' ;
   hfHeight = 'little' ;
   
   constructor() { }
-
-  ngOnInit() {
-  }
 }

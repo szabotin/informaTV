@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NewsService } from '../../services/news.service';
 import { Subscription } from 'rxjs/Subscription';
-import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-news-page',
@@ -9,8 +9,10 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class NewsPageComponent implements OnInit, OnDestroy {
 
-  hMessage = 'News' ;
-  fMessage = 'Use the arrows to see the others News' ;
+  hMessage: string ;
+  pageIndex: number ;
+
+  fMessage = 'Use the arrows to see the another news' ;
   hfHeight = 'little' ;
 
   newsPages: any[] ;
@@ -28,15 +30,11 @@ export class NewsPageComponent implements OnInit, OnDestroy {
     ) ;
 
     this.newsService.emitNewsSubject() ;
-
-
-    // Get the indexPage from the event title
-    // Be carful -> refer to the event titlw in News.service.ts
-
-    // this.indexPage = this.NewsService.getIndexOfPageByTitle('News', this.NewsPages) ; 
+    this.pageIndex = this.newsService.getPageIndex() ;
+  	this.hMessage = this.newsPages[this.pageIndex].title ;
   }
 
   ngOnDestroy() {
-    this.newsPagesSubscription.unsubscribe()
+    this.newsPagesSubscription.unsubscribe() ;
   } 
 }

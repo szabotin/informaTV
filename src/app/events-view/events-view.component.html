@@ -6,7 +6,8 @@
 
 <main class="container-fluid">
     <app-events-link *ngFor="let ep of eventsPages ; let i = index"
-        [photoPath]="ep.photoPath">
+        [photoPath]="ep.photoPath"
+        [pageIndex]="i">
     </app-events-link>
 </main>
 

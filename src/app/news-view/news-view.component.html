@@ -5,7 +5,8 @@
 
 <main class="container-fluid">
     <app-news-link *ngFor="let np of newsPages ; let i = index"
-        [photoPath]="np.photoPath">
+        [photoPath]="np.photoPath"
+        [pageIndex]="i">
     </app-news-link>
 </main>
 

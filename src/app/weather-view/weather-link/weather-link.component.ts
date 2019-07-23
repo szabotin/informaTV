@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-weather-link',
@@ -10,11 +11,12 @@ import { Router } from '@angular/router';
 export class WeatherLinkComponent {
 
   @Input() text : string ;
-  @Input() indexLink : number ;
+  @Input() indexPage : number ;
   
-  constructor(private router: Router) { }
+  constructor(private weatherService: WeatherService, private router: Router) { }
 
   onClic() {
+    this.weatherService.setPageIndex(this.indexPage) ;
     this.router.navigate(['weather-page']) ;
   }
 }

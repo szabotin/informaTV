@@ -5,7 +5,7 @@
 
 <main class="container-fluid">
     <app-weather-box
-        *ngFor="let wp of weatherPages[0].page"
+        *ngFor="let wp of weatherPages[this.index].page"
         [numberOfBoxes]="wp.numberOfBoxes"
         [date]="wp.date"
         [weathText]="wp.weathText"

@@ -9,38 +9,32 @@ import { EventsService } from 'src/app/services/events.service';
 })
 
 export class EventsPageComponent implements OnInit, OnDestroy {
-  
-  // imageLink: string ;
-  // indexPage: number ;
 
-  hMessage = 'Events' ;
-  fMessage = 'Use the arrows to see the others events' ;
-  hfHeight = 'little' ;
+	hMessage: string ;
+	pageIndex: number ;
 
-  eventsPages: any[] ;
-  eventsPagesSubscription: Subscription ;
+	fMessage = 'Use the arrows to see another event' ;
+	hfHeight = 'little' ;
+	
+	eventsPages: any[] ;
+	eventsPagesSubscription: Subscription ;
+	
+	constructor(private eventsService: EventsService) {
+	}
+	
+	ngOnInit() {
+		
+		this.eventsPagesSubscription = this.eventsService.eventsPagesSubject.subscribe(
+			(eventsPages: any[]) => {
+				this.eventsPages = eventsPages ;
+			}) ;
+		this.eventsService.emitEventsSubject() ;
+		
+		this.pageIndex = this.eventsService.getPageIndex() ;
+		this.hMessage = this.eventsPages[this.pageIndex].title ;
+	}
 
-  constructor(private eventsService: EventsService) {
-  }
-
-  ngOnInit() {
-
-    this.eventsPagesSubscription = this.eventsService.eventsPagesSubject.subscribe(
-      (eventsPages: any[]) => {
-        this.eventsPages = eventsPages ;
-      }
-    ) ;
-
-    this.eventsService.emitEventsSubject() ;
-
-
-    // Get the indexPage from the event title
-    // Be carful -> refer to the event titlw in events.service.ts
-
-    // this.indexPage = this.eventsService.getIndexOfPageByTitle('events', this.eventsPages) ; 
-  }
-
-  ngOnDestroy() {
-    this.eventsPagesSubscription.unsubscribe()
-  } 
+	ngOnDestroy() {
+		this.eventsPagesSubscription.unsubscribe()
+	} 
 }

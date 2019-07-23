@@ -38,6 +38,7 @@ import { EventsService } from './services/events.service';
 import { MessagesService } from './services/messages.services';
 import { NewsService } from './services/news.service';
 import { WeatherService } from './services/weather.service';
+import { BlankPageComponent } from './blank-page/blank-page.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { WeatherService } from './services/weather.service';
     WeatherViewComponent,
     WeatherLinkComponent,
     WeatherPageComponent,
-    WeatherBoxComponent
+    WeatherBoxComponent,
+    BlankPageComponent
   ],
 
   imports: [

@@ -10,14 +10,13 @@ import { WeatherService } from 'src/app/services/weather.service';
 
 export class WeatherPageComponent implements OnInit, OnDestroy {
 
-  hfHeight: string ;
   hMessage: string ;
   fMessage: string ;
+  time: string ;
+  index: number ;
 
-  pages: any[] ;
-  indexPage: number ;
-  pagesSubscription: Subscription ;
-
+  hfHeight = 'little' ;
+  
   weatherPages: any[] ;
   weatherPagesSubscription: Subscription ;
 
@@ -34,17 +33,11 @@ export class WeatherPageComponent implements OnInit, OnDestroy {
 
     this.weatherService.emitWeatherSubject() ;
 
-    /*
-    // Get the indexPage from the title page 
-    // Be carful -> refer to the title page in pages.service.ts
-
-    this.indexPage = this.pagesService.getIndexOfPageByTitle('Weather', this.pages) ;
-
-    // Get the title of the page, the height of the header and footer, and the footer message from the tab "pages" */
+    this.index = this.weatherService.getPageIndex() ;
+    this.time = this.weatherPages[this.index].linkText ;
 
     this.hMessage = 'Weather' ;
-    this.fMessage = 'You can see the weather for ...' ;
-    this.hfHeight = 'little' ;
+    this.fMessage = 'You can see the weather for ' + this.time.toLowerCase() + '. Use the arrows to see another time forecast' ;
   }
 
   ngOnDestroy() {
