@@ -9,6 +9,8 @@ import { WeatherService } from '../services/weather.service';
 })
 export class WeatherViewComponent implements OnInit, OnDestroy {
 
+  serieIndex = 0 ;
+
   hMessage = 'Weather' ;
   fMessage = 'Choose which time you want to see the forecast' ;
   hfHeight = 'big' ;
@@ -33,4 +35,20 @@ export class WeatherViewComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.weatherPagesSubscription.unsubscribe() ;
   }
+
+  isFirstPage() {
+		return this.serieIndex == 0 ;
+	}
+	isLastPage() {
+		return this.serieIndex >= this.weatherPages.length - 1 ;
+	}
+
+	onClickLeft() {
+		if (this.serieIndex > 0)
+			this.serieIndex-- ;
+	}
+	onClickRight() {
+		if (this.serieIndex < this.weatherPages.length)
+			this.serieIndex++ ;
+	}
 }

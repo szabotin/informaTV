@@ -5,8 +5,8 @@
 
 <main class="container-fluid">
     <div class="chatBox">
-        <img [src]="newsPages[this.pageIndex].photoPath" class = "photo"/> <!-- Try to get the index of the event -->
-        <div class="text"> {{newsPages[this.pageIndex].text}} </div>
+        <img [src]="newsPages[serieIndex][pageIndex].photoPath" class = "photo"/> <!-- Try to get the index of the event -->
+        <div class="text"> {{newsPages[serieIndex][pageIndex].text}} </div>
     </div>
 </main>
 

@@ -5,10 +5,19 @@
 </app-header>
 
 <main class="container-fluid">
-    <app-events-link *ngFor="let ep of eventsPages ; let i = index"
-        [photoPath]="ep.photoPath"
-        [pageIndex]="i">
-    </app-events-link>
+    <div class="arrow-box">
+        <img *ngIf="!isFirstPage()" class="arrow-icon" src="assets/arrow_left.png" (click)=onClickLeft()/>
+    </div>
+	<div class="links">
+		<app-events-link *ngFor="let ep of eventsPages[serieIndex] ; let i = index"
+			[photoPath]="ep.photoPath"
+			[serieIndex]="serieIndex"
+			[pageIndex]="i">
+		</app-events-link>
+	</div>
+    <div class="arrow-box">
+        <img *ngIf="!isLastPage()" class="arrow-icon" src="assets/arrow_right.png" (click)=onClickRight()/>
+    </div>
 </main>
 
 <app-footer

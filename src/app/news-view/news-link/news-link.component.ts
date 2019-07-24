@@ -9,6 +9,7 @@ import { NewsService } from '../../services/news.service';
 })
 export class NewsLinkComponent {
 
+  @Input() serieIndex: number ;
   @Input() pageIndex: number ;
   @Input() photoPath: string ;
   
@@ -16,6 +17,7 @@ export class NewsLinkComponent {
   }
 
   onClic() {
+    this.newsService.setSerieIndex(this.serieIndex) ;
     this.newsService.setPageIndex(this.pageIndex) ;
     this.router.navigate(['news-page']) ;
   }

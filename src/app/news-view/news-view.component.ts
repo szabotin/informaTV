@@ -3,34 +3,49 @@ import { Subscription } from 'rxjs/Subscription';
 import { NewsService } from '../services/news.service';
 
 @Component({
-  selector: 'app-news-view',
-  templateUrl: './news-view.component.html',
-  styleUrls: ['./news-view.component.scss']
+	selector: 'app-news-view',
+	templateUrl: './news-view.component.html',
+	styleUrls: ['./news-view.component.scss']
 })
+
 export class NewsViewComponent implements OnInit, OnDestroy {
   
-  hMessage = 'News' ;
-  fMessage = 'Click on the event you want to see. Use the arrows to see the others news' ;
-  hfHeight = 'big' ;
+	hMessage = 'News' ;
+	fMessage = 'Click on the event you want to see. Use the arrows to see the others news' ;
+	hfHeight = 'big' ;
+	serieIndex = 0 ;
 
-  newsPages: any[] ;
-  newsPagesSubscription: Subscription ;
+	newsPages: any[] ;
+	newsPagesSubscription: Subscription ;
 
-  constructor(private newsService: NewsService) { }
+	constructor(private newsService: NewsService) { }
 
-  ngOnInit() {
+	ngOnInit() {
+		this.newsPagesSubscription = this.newsService.newsPagesSubject.subscribe(
+			(newsPages: any[]) => {
+				this.newsPages = newsPages ;
+			}
+		) ;
+		this.newsService.emitNewsSubject() ;
+	}
 
-    this.newsPagesSubscription = this.newsService.newsPagesSubject.subscribe(
-      (newsPages: any[]) => {
-        this.newsPages = newsPages ;
-      }
-    ) ;
+	ngOnDestroy() {
+		this.newsPagesSubscription.unsubscribe() ;
+	}
 
-    this.newsService.emitNewsSubject() ;
-   
-  }
+	isFirstPage() {
+		return this.serieIndex == 0 ;
+	}
+	isLastPage() {
+		return this.serieIndex >= this.newsPages.length - 1 ;
+	}
 
-  ngOnDestroy() {
-    this.newsPagesSubscription.unsubscribe() ;
-  }
+	onClickLeft() {
+		if (this.serieIndex > 0)
+			this.serieIndex-- ;
+	}
+	onClickRight() {
+		if (this.serieIndex < this.newsPages.length)
+			this.serieIndex ++ ;
+	}
 }

@@ -1,6 +1,27 @@
+.arrow-box {
+	width: 10vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.arrow-icon {
+	height: 50%;
+	width: 50%;
+}
+
+.links {
+	width: 80vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
 main {
-    height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	height: 40vh;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

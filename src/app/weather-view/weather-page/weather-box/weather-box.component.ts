@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-weather-box',
@@ -6,21 +6,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['../../../../reset.scss', './weather-box.component.scss']
 })
 
-export class WeatherBoxComponent implements OnInit {
+export class WeatherBoxComponent {
 
-  @Input() numberOfBoxes: string ;
+	@Input() numberOfBoxes: string ;
 
-  @Input() date: string ;
-  @Input() weathText: string ;
-  @Input() weathIconPath: string ;
-  @Input() windText: string ;
-  @Input() temperature: string ;
+	@Input() date: string ;
+	@Input() weathText: string ;
+	@Input() weathIconPath: string ;
+	@Input() windText: string ;
+	@Input() temperature: string ;
 
-  windIconPath: string = "assets/weather/wind.png" ;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+	windIconPath: string = "assets/weather/wind.png" ;
 }

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 
 export class EventsLinkComponent {
 
+  @Input() serieIndex: number ;
   @Input() pageIndex: number ;
   @Input() photoPath: string ;
   
@@ -17,6 +18,7 @@ export class EventsLinkComponent {
   }
 
   onClic() {
+    this.eventsService.setSerieIndex(this.serieIndex) ;
     this.eventsService.setPageIndex(this.pageIndex) ;
     this.router.navigate(['events-page']) ;
   }

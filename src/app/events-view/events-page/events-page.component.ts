@@ -10,8 +10,9 @@ import { EventsService } from 'src/app/services/events.service';
 
 export class EventsPageComponent implements OnInit, OnDestroy {
 
-	hMessage: string ;
 	pageIndex: number ;
+	serieIndex: number ;
+	hMessage: string ;
 
 	fMessage = 'Use the arrows to see another event' ;
 	hfHeight = 'little' ;
@@ -30,8 +31,9 @@ export class EventsPageComponent implements OnInit, OnDestroy {
 			}) ;
 		this.eventsService.emitEventsSubject() ;
 		
+		this.serieIndex = this.eventsService.getSerieIndex() ;
 		this.pageIndex = this.eventsService.getPageIndex() ;
-		this.hMessage = this.eventsPages[this.pageIndex].title ;
+		this.hMessage = this.eventsPages[this.serieIndex][this.pageIndex].title ;
 	}
 
 	ngOnDestroy() {

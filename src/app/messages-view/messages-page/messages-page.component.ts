@@ -10,10 +10,12 @@ import { MessagesService } from 'src/app/services/messages.services';
 
 export class MessagesPageComponent implements OnInit, OnDestroy {
   
+  pageIndex: number ;
+  serieIndex: number ;
+  
   hMessage: string ;
   fMessage: string ;
   name: string ;
-  index: number ;
 
   hfHeight = 'little' ;
   
@@ -31,8 +33,9 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
       ) ;
     this.messagesService.emitMessageSubject() ;
     
-    this.index = this.messagesService.getPageIndex() ;
-    this.name = this.messPages[this.index].name ;
+	this.serieIndex = this.messagesService.getSerieIndex() ;
+    this.pageIndex = this.messagesService.getPageIndex() ;
+    this.name = this.messPages[this.serieIndex][this.pageIndex].name ;
 
     this.hMessage = 'Messages with ' + this.name ;
     this.fMessage = 'Here are your messages with ' + this.name + '. Use the arrows to see others messages' ;

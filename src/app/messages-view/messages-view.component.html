@@ -4,12 +4,21 @@
   [headerMessage] = "hMessage">
 </app-header>
 
-<main class="container-fluid">
-    <app-messages-link *ngFor="let m of messPages ; let i = index"
-        [name]="m.name"
-        [photoPath]="m.photoPath"
-        [indexLink]="i"> <!-- change here -->
-    </app-messages-link>
+<main class="container-fluid"> <!-- Solution here to display messages links 4 by 4. Try to just display one -->
+    <div class="arrow-box">
+        <img *ngIf="!isFirstPage()" class="arrow-icon" src="assets/arrow_left.png" (click)=onClickLeft()/>
+    </div>
+    <div class="links">
+        <app-messages-link *ngFor="let mp of messPages[serieIndex] ; let i = index"
+            [name]="mp.name"
+            [photoPath]="mp.photoPath"
+			[serieIndex]="serieIndex"
+            [pageIndex]="i">
+        </app-messages-link>
+    </div>
+    <div class="arrow-box">
+        <img *ngIf="!isLastPage()" class="arrow-icon" src="assets/arrow_right.png" (click)=onClickRight()/>
+    </div>
 </main>
 
 <app-footer

@@ -10,28 +10,42 @@ import { EventsService } from '../services/events.service';
 
 export class EventsViewComponent implements OnInit, OnDestroy {
 
-  hMessage = 'Events' ;
-  fMessage = 'Click on the event you want to see. Use the arrows to see the others events' ;
-  hfHeight = 'big' ;
+	hMessage = 'Events' ;
+	fMessage = 'Click on the event you want to see. Use the arrows to see the others events' ;
+	hfHeight = 'big' ;
+	serieIndex = 0 ;
 
-  eventsPages: any[] ;
-  eventsPagesSubscription: Subscription ;
+	eventsPages: any[] ;
+	eventsPagesSubscription: Subscription ;
 
-  constructor(private eventsService: EventsService) { }
+	constructor(private eventsService: EventsService) { }
 
-  ngOnInit() {
+	ngOnInit() {
+		this.eventsPagesSubscription = this.eventsService.eventsPagesSubject.subscribe(
+			(newsPages: any[]) => {
+				this.eventsPages = newsPages ;
+			}
+		) ;
+		this.eventsService.emitEventsSubject() ;
+	}
 
-    this.eventsPagesSubscription = this.eventsService.eventsPagesSubject.subscribe(
-      (newsPages: any[]) => {
-        this.eventsPages = newsPages ;
-      }
-    ) ;
+	ngOnDestroy() {
+		this.eventsPagesSubscription.unsubscribe() ;
+	}
 
-    this.eventsService.emitEventsSubject() ;
-   
-  }
+	isFirstPage() {
+		return this.serieIndex == 0 ;
+	}
+	isLastPage() {
+		return this.serieIndex >= this.eventsPages.length - 1 ;
+	}
 
-  ngOnDestroy() {
-    this.eventsPagesSubscription.unsubscribe() ;
-  }
+	onClickLeft() {
+		if (this.serieIndex > 0)
+			this.serieIndex-- ;
+	}
+	onClickRight() {
+		if (this.serieIndex < this.eventsPages.length)
+			this.serieIndex ++ ;
+	}
 }

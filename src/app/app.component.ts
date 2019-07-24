@@ -40,11 +40,11 @@ export class AppComponent implements OnInit {
 
 		this.router.navigate(['home-page']) ;
 
-		this.autoRouting(this.timePerSection) ;
+		// this.autoRouting(this.timePerSection) ;
 
-		setTimeout(() => { // Maybe optimise this ?
-			this.router.navigate( ['home-page'] ) ;
-		}, this.timePerSection * 4 );
+		// setTimeout(() => { // Maybe optimise this ?
+		// 	this.router.navigate( ['home-page'] ) ;
+		// }, this.timePerSection * 4 );
 			
 	}
 

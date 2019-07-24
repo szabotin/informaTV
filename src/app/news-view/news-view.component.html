@@ -4,10 +4,21 @@
 </app-header>
 
 <main class="container-fluid">
-    <app-news-link *ngFor="let np of newsPages ; let i = index"
-        [photoPath]="np.photoPath"
-        [pageIndex]="i">
-    </app-news-link>
+    <div class="arrow-box">
+        <img *ngIf="!isFirstPage()" class="arrow-icon" src="assets/arrow_left.png" (click)=onClickLeft()/>
+    </div>
+
+    <div class="links">
+        <app-news-link *ngFor="let np of newsPages[serieIndex] ; let i = index"
+            [photoPath]="np.photoPath"
+            [serieIndex]="serieIndex"
+            [pageIndex]="i">
+        </app-news-link>
+    </div>
+
+    <div class="arrow-box">
+        <img *ngIf="!isLastPage()" class="arrow-icon" src="assets/arrow_right.png" (click)=onClickRight()/>
+    </div>
 </main>
 
 <app-footer

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-message-box',
@@ -6,17 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['../../../../reset.scss', './message-box.component.scss']
 })
 
-export class MessageBoxComponent implements OnInit {
+export class MessageBoxComponent {
 
   @Input() messText : string ;
   @Input() messStatus : string ;
   @Input() messIndex : number ;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
 
   /*messRead() {
     this.messService.messNewToOld(this.messIndex) ;

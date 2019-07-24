@@ -3,38 +3,41 @@ import { NewsService } from '../../services/news.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-news-page',
-  templateUrl: './news-page.component.html',
-  styleUrls: ['./news-page.component.scss']
+	selector: 'app-news-page',
+	templateUrl: './news-page.component.html',
+	styleUrls: ['./news-page.component.scss']
 })
+
 export class NewsPageComponent implements OnInit, OnDestroy {
 
-  hMessage: string ;
-  pageIndex: number ;
+	pageIndex: number ;
+	serieIndex: number ;
+	hMessage: string ;
 
-  fMessage = 'Use the arrows to see the another news' ;
-  hfHeight = 'little' ;
+	fMessage = 'Use the arrows to see the another news' ;
+	hfHeight = 'little' ;
 
-  newsPages: any[] ;
-  newsPagesSubscription: Subscription ;
+	newsPages: any[] ;
+	newsPagesSubscription: Subscription ;
 
-  constructor(private newsService: NewsService) {
-  }
+	constructor(private newsService: NewsService) {
+	}
 
-  ngOnInit() {
+	ngOnInit() {
 
-    this.newsPagesSubscription = this.newsService.newsPagesSubject.subscribe(
-      (newsPages: any[]) => {
-        this.newsPages = newsPages ;
-      }
-    ) ;
+		this.newsPagesSubscription = this.newsService.newsPagesSubject.subscribe(
+			(newsPages: any[]) => {
+				this.newsPages = newsPages ;
+			}
+		) ;
+		this.newsService.emitNewsSubject() ;
+		
+		this.serieIndex = this.newsService.getSerieIndex() ;
+		this.pageIndex = this.newsService.getPageIndex() ;
+		this.hMessage = this.newsPages[this.serieIndex][this.pageIndex].title ;
+	}
 
-    this.newsService.emitNewsSubject() ;
-    this.pageIndex = this.newsService.getPageIndex() ;
-  	this.hMessage = this.newsPages[this.pageIndex].title ;
-  }
-
-  ngOnDestroy() {
-    this.newsPagesSubscription.unsubscribe() ;
-  } 
+	ngOnDestroy() {
+		this.newsPagesSubscription.unsubscribe() ;
+	} 
 }
