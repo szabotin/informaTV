@@ -1,29 +1,20 @@
-<div class = "row" *ngIf="numberOfBoxes===3" style='height:20vh'>
-    <div class = "datel"> 
-        <p> {{date}} </p>
-    </div> 
-    <img class = "weathIconl" [src]="weathIconPath"/>
-    <div class="weathAndTempl"> 
-        <p class = "weathTextl"> {{weathText}} </p> 
-        <p class = "templ"> {{temperature}} </p> 
-    </div>
-    <img class = "windIconl" [src]="windIconPath"/>
-    <div class = "windl">	
-        <p class = "windTextl"> {{windText}} </p>
-    </div>  
+<div id="littleWeatherBox" *ngIf="numberOfBoxes===3" style='height:20vh'> 
+    <p class="date"> {{date}} </p>
+    <img class = "skyIcon" [src]="weathIconPath"/>
+    <p class = "skyText"> {{weathText}} </p> 
+    <p class = "temperature"> {{temperature}} </p> 
+    <img class = "windIcon" [src]="windIconPath"/>
+    <p class = "windText"> {{windText}} </p>
 </div>
 
-<div class = "row" *ngIf="numberOfBoxes===1" style='height:60vh'>
-    <div class = "dateb"> 
-        <p> {{date}} </p>
-    </div> 
-    <img class = "weathIconb" [src]="weathIconPath"/>
-    <div class="weathAndTempb"> 
-        <p class = "weathTextb"> {{weathText}} </p> 
-        <p class = "tempb"> {{temperature}} </p> 
+<div id="bigWeatherBox" *ngIf="numberOfBoxes===1">
+    <div class="skyAndTemp">
+        <img [src]="weathIconPath"/>
+        <p class = "skyText"> {{weathText}} </p> 
+        <p class = "temperature"> {{temperature}} </p> 
     </div>
-    <img class = "windIconb" [src]="windIconPath"/>
-    <div class = "windb">	
-        <p class = "windTextb"> {{windText}} </p>
-    </div>  
+    <div class="wind">
+        <img [src]="windIconPath"/>	
+        <p> {{windText}} </p>
+    </div>
 </div>

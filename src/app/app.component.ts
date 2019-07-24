@@ -38,6 +38,8 @@ export class AppComponent implements OnInit {
 		) ;
 		this.homeService.emitHomeSubject() ;
 
+		// this.weatherService.setSerieIndex(0) ;
+		// this.weatherService.setPageIndex(1) ;
 		this.router.navigate(['home-page']) ;
 
 		// this.autoRouting(this.timePerSection) ;

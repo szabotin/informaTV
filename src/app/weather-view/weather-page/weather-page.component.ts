@@ -36,8 +36,8 @@ export class WeatherPageComponent implements OnInit, OnDestroy {
 		this.serieIndex = this.weatherService.getSerieIndex() ;
 		this.pageIndex = this.weatherService.getPageIndex() ;
 		this.time = this.weatherPages[this.serieIndex][this.pageIndex].linkText ;
-		console.log("Serie : " + this.serieIndex + " Page : " + this.pageIndex + " Time : " + this.time) ;
-		this.hMessage = 'Weather' ;
+
+		this.hMessage = 'Weather for ' + this.time.toLowerCase() ;
 		this.fMessage = 'You can see the weather for ' + this.time.toLowerCase() + '. Use the arrows to see another time forecast' ;
 	}
 

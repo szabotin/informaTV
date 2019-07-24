@@ -14,7 +14,7 @@ export class MessagesService {
     messPagesSubject = new Subject<any[]>() ;
 
     constructor(private router: Router) {}
-    
+
     private messPages = [ // delete or comment one bracket to delete one person or not
 		[
 			{
