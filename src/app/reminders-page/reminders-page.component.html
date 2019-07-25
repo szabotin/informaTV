@@ -1,0 +1,26 @@
+<app-header 
+	[headerHeight] = "hfHeight"
+	[headerMessage] = "hMessage">
+</app-header>
+
+<main>
+	<div class="arrow-box">
+		<img *ngIf="!isFirstPage()" class="arrow-icon" src="assets/arrow_left.png" (click)=onClickLeft()/>
+	</div>
+
+	<div class="links">		
+		<app-reminder-box
+			*ngFor="let r of reminders[serieIndex]" 
+			[reminderText]="r">
+		</app-reminder-box>
+	</div>
+
+	<div class="arrow-box">
+		<img *ngIf="!isLastPage()" class="arrow-icon" src="assets/arrow_right.png" (click)=onClickRight()/>
+	</div>
+</main>
+
+<app-footer
+    [footerHeight] = "hfHeight"
+    [footerMessage] = "fMessage">
+</app-footer>

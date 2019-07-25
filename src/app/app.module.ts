@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms' ; // utilise le 2 way binding
+import { FormsModule } from '@angular/forms' ; // to use the 2 way binding (don't used it in this code yet)
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -24,11 +24,14 @@ import { MessageBoxComponent } from './messages-view/messages-page/message-box/m
 import { NewsViewComponent } from './news-view/news-view.component';
 import { NewsLinkComponent } from './news-view/news-link/news-link.component';
 import { NewsPageComponent } from './news-view/news-page/news-page.component';
-import { RemindersComponent } from './reminders/reminders.component';
+import { RemindersPageComponent } from './reminders-page/reminders-page.component';
+import { ReminderBoxComponent } from './reminders-page/reminder-box/reminder-box.component';
 import { WeatherViewComponent } from './weather-view/weather-view.component';
 import { WeatherLinkComponent } from './weather-view/weather-link/weather-link.component';
 import { WeatherPageComponent } from './weather-view/weather-page/weather-page.component';
 import { WeatherBoxComponent } from './weather-view/weather-page/weather-box/weather-box.component';
+
+import { BlankPageComponent } from './blank-page/blank-page.component';
 
 // services
 
@@ -37,8 +40,8 @@ import { HomeService } from './services/home.service';
 import { EventsService } from './services/events.service';
 import { MessagesService } from './services/messages.services';
 import { NewsService } from './services/news.service';
+import { RemindersService } from './services/reminders.service';
 import { WeatherService } from './services/weather.service';
-import { BlankPageComponent } from './blank-page/blank-page.component';
 
 @NgModule({
   declarations: [
@@ -60,11 +63,13 @@ import { BlankPageComponent } from './blank-page/blank-page.component';
     NewsViewComponent,
     NewsLinkComponent,
     NewsPageComponent,
-    RemindersComponent,
+    RemindersPageComponent,
+    ReminderBoxComponent,
     WeatherViewComponent,
     WeatherLinkComponent,
     WeatherPageComponent,
     WeatherBoxComponent,
+
     BlankPageComponent
   ],
 
@@ -74,7 +79,7 @@ import { BlankPageComponent } from './blank-page/blank-page.component';
     FormsModule
   ],
   
-  providers: [HomeService, MessagesService, NewsService, WeatherService, EventsService],
+  providers: [HomeService, EventsService, MessagesService, NewsService, RemindersService, WeatherService],
   
   bootstrap: [AppComponent]
 })

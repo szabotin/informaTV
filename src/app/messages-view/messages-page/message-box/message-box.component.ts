@@ -8,9 +8,9 @@ import { Component, Input } from '@angular/core';
 
 export class MessageBoxComponent {
 
-  @Input() messText : string ;
-  @Input() messStatus : string ;
-  @Input() messIndex : number ;
+  @Input() messText: string;
+  @Input() messStatus: string;
+  @Input() messIndex: number;
 
   /*messRead() {
     this.messService.messNewToOld(this.messIndex) ;

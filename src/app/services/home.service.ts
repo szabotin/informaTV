@@ -10,7 +10,7 @@ export class HomeService {
     private sections = [ // delete or comment one bracket to delete one item or not
         {
             title : "Messages",
-            autoRouting : 'messages-page',
+            autoRouting : 'messages-page', // refer to the app-routing.module.ts
             link : [{
                 ref : 'messages-view', // refer to the app-routing.module.ts
                 image : 'assets/home/mess.png'
@@ -18,23 +18,23 @@ export class HomeService {
         },
         {
             title : "Events",
-            autoRouting : 'events-page',
+            autoRouting : 'events-page', // refer to the app-routing.module.ts
             link : [{
                 ref : 'events-view', // refer to the app-routing.module.ts
                 image : 'assets/home/cal.png'
             }]
         },
-        // {
-        //     title : "Reminders",
-        //     autoRouting : 'reminders',
-        //     link : [{
-        //         ref : 'reminders', // refer to the app-routing.module.ts
-        //         image : 'assets/home/memo.png'
-        //     }]
-        // },
+        {
+            title : "Reminders",
+            autoRouting : 'reminders-page', // refer to the app-routing.module.ts
+            link : [{
+                ref : 'reminders-page', // refer to the app-routing.module.ts
+                image : 'assets/home/memo.png'
+            }]
+        },
         {
             title : "Weather",
-            autoRouting : 'weather-page',
+            autoRouting : 'weather-page', // refer to the app-routing.module.ts
             link : [{
                 ref : 'weather-view', // refer to the app-routing.module.ts
                 image : 'assets/home/weather.png'
@@ -42,7 +42,7 @@ export class HomeService {
         },
         {
             title : "News",
-            autoRouting : 'news-page',
+            autoRouting : 'news-page', // refer to the app-routing.module.ts
             link : [{
                 ref : 'news-view', // refer to the app-routing.module.ts
                 image : 'assets/home/news.png'

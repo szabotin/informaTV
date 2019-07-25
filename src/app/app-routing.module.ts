@@ -7,11 +7,11 @@ import { MessagesViewComponent } from './messages-view/messages-view.component';
 import { MessagesPageComponent } from './messages-view/messages-page/messages-page.component';
 import { NewsViewComponent } from './news-view/news-view.component';
 import { NewsPageComponent } from './news-view/news-page/news-page.component';
-import { RemindersComponent } from './reminders/reminders.component';
 import { WeatherViewComponent } from './weather-view/weather-view.component';
 import { WeatherPageComponent } from './weather-view/weather-page/weather-page.component';
 
 import { BlankPageComponent } from './blank-page/blank-page.component'; // Very bad code. Delete this component if we delete the bad code in app-component for autoRouting
+import { RemindersPageComponent } from './reminders-page/reminders-page.component';
 
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'messages-page', component: MessagesPageComponent },
   { path: 'news-view', component: NewsViewComponent },
   { path: 'news-page', component: NewsPageComponent },
-  { path: 'reminders', component: RemindersComponent },
+  { path: 'reminders-page', component: RemindersPageComponent },
   { path: 'weather-view', component: WeatherViewComponent },
   { path: 'weather-page', component: WeatherPageComponent },
   { path: '', component: HomePageComponent },
