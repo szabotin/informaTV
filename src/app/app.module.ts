@@ -38,7 +38,8 @@ import { BlankPageComponent } from './blank-page/blank-page.component';
 import { HomeService } from './services/home.service';
 
 import { EventsService } from './services/events.service';
-import { MessagesService } from './services/messages.services';
+import { MessagesService } from './services/messages.service';
+import { MessagesPagesService } from './services/messagesPages.service';
 import { NewsService } from './services/news.service';
 import { RemindersService } from './services/reminders.service';
 import { WeatherService } from './services/weather.service';
@@ -79,7 +80,7 @@ import { WeatherService } from './services/weather.service';
     FormsModule
   ],
   
-  providers: [HomeService, EventsService, MessagesService, NewsService, RemindersService, WeatherService],
+  providers: [HomeService, EventsService, MessagesService, MessagesPagesService, NewsService, RemindersService, WeatherService],
   
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MessagesService } from '../services/messages.services';
+import { MessagesPagesService } from '../services/messagesPages.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -19,7 +19,7 @@ export class MessagesViewComponent implements OnInit, OnDestroy {
 	messPages: any[] ;
 	messPagesSubscription: Subscription ;
 
-	constructor(private messagesService: MessagesService) { }
+	constructor(private messagesService: MessagesPagesService) { }
 
 	ngOnInit() {
 		this.messPagesSubscription = this.messagesService.messPagesSubject.subscribe(

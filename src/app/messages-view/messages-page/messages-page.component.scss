@@ -1,18 +1,26 @@
+.arrow-box {
+	width: 10vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.arrow-icon {
+	height: 50%;
+	width: 50%;
+}
+
 main {
 	height: 60vh;
 	display: flex;
 	justify-content: center;
-	padding-right: 0;
-	padding-left: 0;
-	// align-items: center; // delete if it works without
 }
 
-.chatBox  {
-	width: 90%;
-	background-color: white;
-	font-size: 1vw;
+.messages {
+	width: 80vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	text-align: left;
+	align-items: center;
+	text-align: center;
 }

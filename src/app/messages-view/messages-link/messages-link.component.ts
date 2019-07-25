@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
-import { MessagesService } from 'src/app/services/messages.services';
+import { MessagesService } from 'src/app/services/messages.service';
+import { MessagesPagesService } from 'src/app/services/messagesPages.service';
 
 @Component({
   selector: 'app-messages-link',
@@ -16,14 +16,12 @@ export class MessagesLinkComponent {
 	@Input() name: string ;
 	@Input() photoPath: string ;
 
-	messPages: any[] ;
-	messageSubscription: Subscription ;
-
-	constructor(private messService: MessagesService, private router: Router) {}
+	constructor(private messagesService: MessagesService, private messagesPagesService: MessagesPagesService, private router: Router) {}
 
 	onClic() {
-		this.messService.setSerieIndex(this.serieIndex) ;
-		this.messService.setPageIndex(this.pageIndex) ;
+		this.messagesService.setPersonIndex(this.serieIndex*4 + this.pageIndex) ;
+		this.messagesPagesService.setSerieIndex(this.serieIndex) ;
+		this.messagesPagesService.setPageIndex(this.pageIndex) ;
 		this.router.navigate(['messages-page']) ;
 	}
 

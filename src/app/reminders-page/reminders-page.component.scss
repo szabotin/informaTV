@@ -10,17 +10,18 @@
 	width: 50%;
 }
 
-.links {
+
+main {
+	height: 60vh;
+	display: flex;
+	flex-direction: row;
+}
+
+.reminders {
 	width: 80vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-}
-
-main {
-	height: 60vh;
-	display: flex;
-	flex-direction: row;
 }

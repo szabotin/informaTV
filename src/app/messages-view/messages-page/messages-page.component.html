@@ -5,12 +5,22 @@
 	[headerMessage] = "hMessage">
 </app-header>
 
-<main class="container-fluid chatBox">
-    <app-message-box style="height:20%"
-                  	 *ngFor="let m of messPages[serieIndex][pageIndex].page" 
-                 	 [messText]="m.text"
-                	 [messStatus]="m.status">
-    </app-message-box>
+<main >
+	<div class="arrow-box">
+		<img *ngIf="!isFirstPage()" class="arrow-icon" src="assets/arrow_left.png" (click)=onClickLeft()/>
+	</div>
+
+	<div class="messages">	
+		<app-message-box style="height:20%"
+						*ngFor="let m of messages[personIndex][messagesSerieIndex]" 
+						[messText]="m.text"
+						[messStatus]="m.status">
+		</app-message-box>
+	</div>
+
+	<div class="arrow-box">
+		<img *ngIf="!isLastPage()" class="arrow-icon" src="assets/arrow_right.png" (click)=onClickRight()/>
+	</div>
 </main>
 
 <app-footer

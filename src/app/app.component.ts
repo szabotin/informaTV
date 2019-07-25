@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './services/home.service';
 import { EventsService } from './services/events.service';
-import { MessagesService } from './services/messages.services';
+import { MessagesPagesService } from './services/messagesPages.service';
 import { NewsService } from './services/news.service';
 import { WeatherService } from './services/weather.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/rx' ;
+import { MessagesService } from './services/messages.service';
 
 @Component({
   selector: 'app-root',
@@ -25,10 +26,11 @@ export class AppComponent implements OnInit {
 
 	constructor(private homeService: HomeService, 
 				private eventsService: EventsService, 
-				private messagesService: MessagesService,
+				private messagesPagesService: MessagesPagesService,
 				private newsService: NewsService,
 				private weatherService: WeatherService,   
-				private router: Router) { }
+				private router: Router,
+				private messagesService: MessagesService) { }
 
 	ngOnInit() {
 		this.sectionsSubscription = this.homeService.sectionsSubject.subscribe(
@@ -38,9 +40,10 @@ export class AppComponent implements OnInit {
 		) ;
 		this.homeService.emitHomeSubject() ;
 
-		// this.weatherService.setSerieIndex(0) ;
-		// this.weatherService.setPageIndex(1) ;
-		this.router.navigate(['home-page']) ;
+		this.messagesService.setPersonIndex(0) ;
+		this.messagesPagesService.setSerieIndex(0) ;
+		this.messagesPagesService.setPageIndex(0) ;
+		this.router.navigate(['messages-page']) ;
 
 		// this.autoRouting(this.timePerSection) ;
 
@@ -57,7 +60,7 @@ export class AppComponent implements OnInit {
 	getSectionLength(section: string) {
 		switch (section) {
 			case 'messages-page':
-				return this.messagesService.getLength() ;
+				return this.messagesPagesService.getLength() ;
 			case 'events-page':
 				return this.eventsService.getLength() ;
 			case 'news-page':
@@ -70,7 +73,7 @@ export class AppComponent implements OnInit {
 	setSectionPageIndex(section: string, value: number) {
 		switch (section) {
 			case 'messages-page':
-				this.messagesService.setPageIndex(value) ;
+				this.messagesPagesService.setPageIndex(value) ;
 				break ;
 
 			case 'events-page':

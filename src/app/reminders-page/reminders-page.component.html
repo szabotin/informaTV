@@ -8,7 +8,7 @@
 		<img *ngIf="!isFirstPage()" class="arrow-icon" src="assets/arrow_left.png" (click)=onClickLeft()/>
 	</div>
 
-	<div class="links">		
+	<div class="reminders">		
 		<app-reminder-box
 			*ngFor="let r of reminders[serieIndex]" 
 			[reminderText]="r">
