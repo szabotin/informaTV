@@ -1,3 +1,7 @@
+/************************************************************************************************************/
+/*   This file contains only the title of link of the messages pages and the title of the messages pages.   */
+/************************************************************************************************************/
+
 import { Subject } from 'rxjs/Subject';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -7,7 +11,7 @@ import { Router } from '@angular/router';
 export class MessagesPagesService {
 
 	private serieIndex: number ;
-    private pageIndex: number ;
+    private personIndex: number ;
 
     messPagesSubject = new Subject<any[]>() ;
 
@@ -56,21 +60,27 @@ export class MessagesPagesService {
         this.messPagesSubject.next(this.messPages.slice()) ;
     }
 
+    getPersonIndex() {
+        return this.personIndex ;
+    }
+
 	getSerieIndex() {
         return this.serieIndex ;
     }
-
-    getPageIndex() {
-        return this.pageIndex ;
-    }
 	
+    setIndexs(indexs) {
+        this.serieIndex = indexs[0] ;
+        this.personIndex = indexs[1] ;
+    }
+
+    setPersonIndex(index: number) {
+        this.personIndex = index ;
+    }
+
     setSerieIndex(index: number) {
         this.serieIndex = index ;
     }
 
-    setPageIndex(index: number) {
-        this.pageIndex = index ;
-    }
 
     getLength() {
         return this.messPages.length ;

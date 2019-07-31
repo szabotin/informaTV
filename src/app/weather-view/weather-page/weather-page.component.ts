@@ -10,8 +10,10 @@ import { WeatherService } from 'src/app/services/weather.service';
 
 export class WeatherPageComponent implements OnInit, OnDestroy {
 
-	pageIndex: number ;
-	serieIndex: number ;
+	weatherPageIndex = 0 ;
+	
+	weatherLinkSerieIndex: number ;
+	weatherLinkIndex: number ;
 
 	hMessage: string ;
 	fMessage: string ;
@@ -33,15 +35,33 @@ export class WeatherPageComponent implements OnInit, OnDestroy {
 		) ;
 		this.weatherService.emitWeatherSubject() ;
 
-		this.serieIndex = this.weatherService.getSerieIndex() ;
-		this.pageIndex = this.weatherService.getPageIndex() ;
-		this.time = this.weatherPages[this.serieIndex][this.pageIndex].linkText ;
+		this.weatherLinkSerieIndex = this.weatherService.getWeatherLinkSerieIndex() ;
+		this.weatherLinkIndex = this.weatherService.getWeatherLinkIndex() ;
+		this.time = this.weatherPages[this.weatherLinkSerieIndex][this.weatherLinkIndex].linkText ;
 
 		this.hMessage = 'Weather for ' + this.time.toLowerCase() ;
 		this.fMessage = 'You can see the weather for ' + this.time.toLowerCase() + '. Use the arrows to see another time forecast' ;
+
+		this.weatherPageIndex = this.weatherService.getWeatherPageIndex() ;
 	}
 
 	ngOnDestroy() {
-		this.weatherPagesSubscription.unsubscribe()
+		this.weatherPagesSubscription.unsubscribe() ;
+	}
+
+	isFirstPage() {
+		return this.weatherPageIndex == 0 ;
+	}
+	isLastPage() {
+		return this.weatherPageIndex >= this.weatherPages[this.weatherLinkSerieIndex][this.weatherLinkIndex].page.length - 1 ;
+	}
+
+	onClickLeft() {
+		if (this.weatherPageIndex > 0)
+			this.weatherPageIndex-- ;
+	}
+	onClickRight() {
+		if (this.weatherPageIndex < this.weatherPages[this.weatherLinkSerieIndex][this.weatherLinkIndex].page.length)
+			this.weatherPageIndex++ ;
 	}
 }

@@ -32,8 +32,8 @@ export class NewsPageComponent implements OnInit, OnDestroy {
 		) ;
 		this.newsService.emitNewsSubject() ;
 		
-		this.serieIndex = this.newsService.getSerieIndex() ;
-		this.pageIndex = this.newsService.getPageIndex() ;
+		this.serieIndex = this.newsService.getNewsSerieIndex() ;
+		this.pageIndex = this.newsService.getNewsIndex() ;
 		this.hMessage = this.newsPages[this.serieIndex][this.pageIndex].title ;
 	}
 

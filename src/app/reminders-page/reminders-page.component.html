@@ -10,7 +10,7 @@
 
 	<div class="reminders">		
 		<app-reminder-box
-			*ngFor="let r of reminders[serieIndex]" 
+			*ngFor="let r of reminders[pageIndex]" 
 			[reminderText]="r">
 		</app-reminder-box>
 	</div>

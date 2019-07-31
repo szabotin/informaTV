@@ -9,7 +9,7 @@ import { WeatherService } from '../services/weather.service';
 })
 export class WeatherViewComponent implements OnInit, OnDestroy {
 
-  serieIndex = 0 ;
+  weatherLinkSerieIndex = 0 ;
 
   hMessage = 'Weather' ;
   fMessage = 'Choose which time you want to see the forecast' ;
@@ -37,18 +37,18 @@ export class WeatherViewComponent implements OnInit, OnDestroy {
   }
 
   isFirstPage() {
-		return this.serieIndex == 0 ;
+		return this.weatherLinkSerieIndex == 0 ;
 	}
 	isLastPage() {
-		return this.serieIndex >= this.weatherPages.length - 1 ;
+		return this.weatherLinkSerieIndex >= this.weatherPages.length - 1 ;
 	}
 
 	onClickLeft() {
-		if (this.serieIndex > 0)
-			this.serieIndex-- ;
+		if (this.weatherLinkSerieIndex > 0)
+			this.weatherLinkSerieIndex-- ;
 	}
 	onClickRight() {
-		if (this.serieIndex < this.weatherPages.length)
-			this.serieIndex++ ;
+		if (this.weatherLinkSerieIndex < this.weatherPages.length)
+			this.weatherLinkSerieIndex++ ;
 	}
 }

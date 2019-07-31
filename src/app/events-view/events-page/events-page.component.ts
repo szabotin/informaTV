@@ -31,8 +31,8 @@ export class EventsPageComponent implements OnInit, OnDestroy {
 			}) ;
 		this.eventsService.emitEventsSubject() ;
 		
-		this.serieIndex = this.eventsService.getSerieIndex() ;
-		this.pageIndex = this.eventsService.getPageIndex() ;
+		this.serieIndex = this.eventsService.getEventsSerieIndex() ;
+		this.pageIndex = this.eventsService.getEventIndex() ;
 		this.hMessage = this.eventsPages[this.serieIndex][this.pageIndex].title ;
 	}
 

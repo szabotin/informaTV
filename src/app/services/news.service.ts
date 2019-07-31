@@ -2,8 +2,8 @@ import { Subject } from 'rxjs/Subject';
 
 export class NewsService {
 
-    private serieIndex: number ;
-    private pageIndex: number ;
+    private newsSerieIndex: number ;
+    private newsIndex: number ;
 
     newsPagesSubject = new Subject<any[]>() ;
     
@@ -78,18 +78,44 @@ export class NewsService {
         this.newsPagesSubject.next(this.newsPages.slice()) ;
     }
     
-    getSerieIndex() {
-        return this.serieIndex ;
+    getNewsSerieIndex() {
+        return this.newsSerieIndex ;
     }
-	getPageIndex() {
-        return this.pageIndex ;
+	getNewsIndex() {
+        return this.newsIndex ;
+    }
+
+    getNbPagesToDisplay() {
+        var nbPages = 0 ;
+
+        for (var i = 0 ; i < this.newsPages.length ; i++) {
+            nbPages += this.newsPages[i].length ;
+        }
+
+        return nbPages ;
     }
 
     setSerieIndex(index: number) {
-        this.serieIndex = index ;
+        this.newsSerieIndex = index ;
     }
 	setPageIndex(index: number) {
-        this.pageIndex = index ;
+        this.newsIndex = index ;
+    }
+
+    setIndexs(index: number) { // this function is similar to the way we count numbers. (units, dozens, hundreds...), ut applied with our structure (newsBoxIndex,newsPageIndex, ...)
+        var newsSerieIndex = 0 ;
+        var newsIndex = 0 ;
+        
+        for (var i = 0 ; i < index ; i++) { // change : we can avoid this loop for every indexes
+            newsIndex++ ;
+            if (newsIndex >= this.newsPages[newsSerieIndex].length) {
+                newsIndex = 0 ;
+                newsSerieIndex++ ;
+            }
+        }
+        
+        this.newsSerieIndex = newsSerieIndex ;
+        this.newsIndex = newsIndex ;
     }
 
     getLength() {

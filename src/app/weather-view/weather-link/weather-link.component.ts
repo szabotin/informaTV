@@ -10,15 +10,17 @@ import { WeatherService } from 'src/app/services/weather.service';
 
 export class WeatherLinkComponent {
   
-	@Input() serieIndex: number ;
-	@Input() pageIndex: number ;
+	@Input() weatherLinkSerieIndex: number ;
+	@Input() weatherLinkIndex: number ;
+	@Input() weatherPageIndex: number ;
 	@Input() text : string ;
 	
 	constructor(private weatherService: WeatherService, private router: Router) { }
 
 	onClic() {
-		this.weatherService.setSerieIndex(this.serieIndex) ;
-		this.weatherService.setPageIndex(this.pageIndex) ;
+		this.weatherService.setWeatherLinkSerieIndex(this.weatherLinkSerieIndex) ;
+		this.weatherService.setWeatherLinkIndex(this.weatherLinkIndex) ;
+		this.weatherService.setWeatherPageIndex(0) ;
 		this.router.navigate(['weather-page']) ;
 	}
 }

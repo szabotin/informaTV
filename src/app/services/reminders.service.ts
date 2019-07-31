@@ -2,7 +2,7 @@ import { Subject } from 'rxjs/Subject';
 
 export class RemindersService {
 
-    private serieIndex: number ;
+    private pageIndex: number ;
 
     remindersSubject = new Subject<any[]>() ;
     
@@ -23,12 +23,20 @@ export class RemindersService {
         this.remindersSubject.next(this.reminders.slice()) ;
     }
     
-    getSerieIndex() {
-        return this.serieIndex ;
+    getPageIndex() {
+        return this.pageIndex ;
     }
 
-    setSerieIndex(index: number) {
-        this.serieIndex = index ;
+    getNbPagesToDisplay() {
+        return this.reminders.length ;
+    }
+
+    setPageIndex(index: number) {
+        this.pageIndex = index ;
+    }
+
+    setIndexs(index: number) {
+        this.pageIndex = index ;
     }
 
     getLength() {

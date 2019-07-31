@@ -16,12 +16,15 @@ export class MessagesLinkComponent {
 	@Input() name: string ;
 	@Input() photoPath: string ;
 
+	nbPeopleInOnePage = 4 ;
+
 	constructor(private messagesService: MessagesService, private messagesPagesService: MessagesPagesService, private router: Router) {}
 
 	onClic() {
-		this.messagesService.setPersonIndex(this.serieIndex*4 + this.pageIndex) ;
 		this.messagesPagesService.setSerieIndex(this.serieIndex) ;
-		this.messagesPagesService.setPageIndex(this.pageIndex) ;
+		this.messagesPagesService.setPersonIndex(this.pageIndex) ;
+		this.messagesService.setPersonIndex(this.serieIndex*this.nbPeopleInOnePage + this.pageIndex) ;
+		this.messagesService.setMessagesSerieIndex(0) ;
 		this.router.navigate(['messages-page']) ;
 	}
 

@@ -11,11 +11,10 @@ import { MessagesPagesService } from 'src/app/services/messagesPages.service';
 
 export class MessagesPageComponent implements OnInit, OnDestroy {
   
-	messagesSerieIndex = 0 ;
+	messagesSerieIndex: number;
 
+	personSerieIndex: number ;
 	personIndex: number ;
-	pageSerieIndex: number ;
-	pageIndex: number ;
 	
 	hMessage: string ;
 	fMessage: string ;
@@ -32,7 +31,7 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
 	constructor(private messagesPagesService: MessagesPagesService, private messagesService: MessagesService) { }
 	
 	ngOnInit() {
-		
+
 		// Subscriptions
 
 		this.messagesPagesSubscription = this.messagesPagesService.messPagesSubject.subscribe(
@@ -47,19 +46,18 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
 				this.messages = messages ;
 			}
 		) ;
-		this.messagesService.emitMessageSubject() ;
+		this.messagesService.emitMessagesSubject() ;
 
 		// Display the message depends on the person
-
-		this.pageSerieIndex = this.messagesPagesService.getSerieIndex() ;
-		this.pageIndex = this.messagesPagesService.getPageIndex() ;
-		// console.log("Serie : " + this.pageSerieIndex + " Page : " + this.pageIndex) ;
-		this.name = this.messagesPages[this.pageSerieIndex][this.pageIndex].name ;
+		
+		this.personSerieIndex = this.messagesPagesService.getSerieIndex() ;
+		this.personIndex = this.messagesPagesService.getPersonIndex() ;
+		this.name = this.messagesPages[this.personSerieIndex][this.personIndex].name ; // "person" is like "messagesLink"
 
 		this.hMessage = 'Messages with ' + this.name ;
 		this.fMessage = 'Here are your messages with ' + this.name + '. Use the arrows to see others messages' ;
-		
-		this.personIndex = this.messagesService.getPersonIndex() ;
+
+		this.messagesSerieIndex = this.messagesService.getMessagesSerieIndex() ;
 	}
 
 	ngOnDestroy() {
@@ -71,7 +69,7 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
 		return this.messagesSerieIndex == 0 ;
 	}
 	isLastPage() {
-		return this.messagesSerieIndex >= this.messages[this.personIndex].length - 1 ;
+		return this.messagesSerieIndex >= this.messages[this.personSerieIndex][this.personIndex].length - 1 ;
 	}
 
 	onClickLeft() {

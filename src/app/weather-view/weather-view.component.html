@@ -10,10 +10,10 @@
             <img *ngIf="!isFirstPage()" class="arrow-icon" src="assets/arrow_left.png" (click)=onClickLeft()/>
         </div>
     <div class="links">
-        <app-weather-link *ngFor="let wp of weatherPages[serieIndex] ; let i = index"
+        <app-weather-link *ngFor="let wp of weatherPages[weatherLinkSerieIndex] ; let i = index"
             [text]="wp.linkText"
-            [serieIndex]="serieIndex"
-            [pageIndex]="i">
+            [weatherLinkSerieIndex]="weatherLinkSerieIndex"
+            [weatherLinkIndex]="i">
         </app-weather-link>
     </div>
     <div class="arrow-box">

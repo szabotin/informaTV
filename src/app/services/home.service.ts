@@ -17,6 +17,14 @@ export class HomeService {
             }]
         },
         {
+            title : "Weather",
+            autoRouting : 'weather-page', // refer to the app-routing.module.ts
+            link : [{
+                ref : 'weather-view', // refer to the app-routing.module.ts
+                image : 'assets/home/weather.png'
+            }]
+        },
+        {
             title : "Events",
             autoRouting : 'events-page', // refer to the app-routing.module.ts
             link : [{
@@ -30,14 +38,6 @@ export class HomeService {
             link : [{
                 ref : 'reminders-page', // refer to the app-routing.module.ts
                 image : 'assets/home/memo.png'
-            }]
-        },
-        {
-            title : "Weather",
-            autoRouting : 'weather-page', // refer to the app-routing.module.ts
-            link : [{
-                ref : 'weather-view', // refer to the app-routing.module.ts
-                image : 'assets/home/weather.png'
             }]
         },
         {

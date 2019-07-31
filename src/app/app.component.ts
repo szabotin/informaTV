@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeService } from './services/home.service';
 import { EventsService } from './services/events.service';
+import { MessagesService } from './services/messages.service';
 import { MessagesPagesService } from './services/messagesPages.service';
 import { NewsService } from './services/news.service';
+import { RemindersService } from './services/reminders.service';
 import { WeatherService } from './services/weather.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/rx' ;
-import { MessagesService } from './services/messages.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,21 @@ import { MessagesService } from './services/messages.service';
   styleUrls: ['../reset.scss', './app.component.scss']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
-	timePerSection: number = 4000 ;
+	secondsPerPageBySection:any = {
+		Messages: 1, // for the names, it refers to the title of the links in home.service
+		Weather: 1,
+		Reminders: 1,
+		News: 1,
+		Events: 1
+	};
+
+	totalSeconds = 0 ;
+	timeUnitInMilliSeconds = 1000 ;
+
+	nbSectionsDone = 0 ;
+
 	sections: any[] ;
 	sectionsSubscription: Subscription ;
 
@@ -26,66 +39,131 @@ export class AppComponent implements OnInit {
 
 	constructor(private homeService: HomeService, 
 				private eventsService: EventsService, 
+				private messagesService: MessagesService,
 				private messagesPagesService: MessagesPagesService,
 				private newsService: NewsService,
+				private remindersService: RemindersService,
 				private weatherService: WeatherService,   
-				private router: Router,
-				private messagesService: MessagesService) { }
+				private router: Router) { }
 
 	ngOnInit() {
 		this.sectionsSubscription = this.homeService.sectionsSubject.subscribe(
-		(sections: any[]) => {
-			this.sections = sections ;
-		}
+			(sections: any[]) => {
+				this.sections = sections ;
+			}
 		) ;
 		this.homeService.emitHomeSubject() ;
 
-		this.messagesService.setPersonIndex(0) ;
-		this.messagesPagesService.setSerieIndex(0) ;
-		this.messagesPagesService.setPageIndex(0) ;
-		this.router.navigate(['messages-page']) ;
+		// this.messagesService.setPersonIndex(0) ;
+		// this.messagesPagesService.setSerieIndex(0) ;
+		// this.messagesPagesService.setPageIndex(0) ;
+		
+		this.totalSeconds = this.getNbSecondsToDisplayAll() ;
 
-		// this.autoRouting(this.timePerSection) ;
-
-		// setTimeout(() => { // Maybe optimise this ?
-		// 	this.router.navigate( ['home-page'] ) ;
-		// }, this.timePerSection * 4 );
+		this.router.navigate(['blank-page']) ;
+		
+		this.autoRouting() ;
+		
+		setTimeout(() => { // Maybe optimise this ?
+	 		this.router.navigate( ['home-page'] ) ;
+		}, this.totalSeconds * (this.timeUnitInMilliSeconds + 1)) ;
 			
 	}
 
 	ngOnDestroy() {
-		this.sectionsSubscription.unsubscribe()
+		this.sectionsSubscription.unsubscribe() ;
+	}		
+
+	autoRouting() {
+		
+		var valueIndex = 0 ;
+		var sectionIndex = 0 ;
+		var sectionName = this.sections[sectionIndex].title ;
+		var sectionPath = this.sections[sectionIndex].autoRouting ;
+		var nbSecondsPerPage = this.secondsPerPageBySection[sectionName] ;
+		var nbPagesToDisplay = this.getNbPagesToDisplay(sectionPath) ;
+		var nbSecondsForSection = nbSecondsPerPage * nbPagesToDisplay ;
+
+		const counter = Observable.interval(this.timeUnitInMilliSeconds).take(this.totalSeconds) ;
+
+		this.counterSubscription = counter.subscribe(
+			(value : number) => {
+				if (valueIndex >= nbSecondsForSection) {
+					valueIndex = 0 ;
+					sectionIndex++ ;
+					sectionName = this.sections[sectionIndex].title ;
+					sectionPath = this.sections[sectionIndex].autoRouting ;
+					nbSecondsPerPage = this.secondsPerPageBySection[sectionName] ;
+					nbPagesToDisplay = this.getNbPagesToDisplay(sectionPath) ;
+					nbSecondsForSection = nbSecondsPerPage * nbPagesToDisplay ;
+				}
+
+				if (valueIndex % nbSecondsPerPage == 0) {
+					this.setSectionIndexs(sectionPath, valueIndex/nbSecondsPerPage) ;
+					this.navigate(sectionPath) ;
+				}
+				
+				valueIndex++ ;
+				// console.log(sectionName, sectionPath, nbSecondsPerPage, nbPagesToDisplay, nbSecondsForSection, valueIndex, sectionIndex) ;
+			},
+			function (err) {
+				console.log('Error: ' + err) ;
+			},
+			function () {  
+				console.log("terminé !") ; 
+			}
+		) ;		
 	}
 
-	getSectionLength(section: string) {
+	getNbSecondsToDisplayAll() {
+		var nbSeconds = 0 ;
+		
+		nbSeconds += this.messagesService.getNbPagesToDisplay()  * this.secondsPerPageBySection['Messages']  ;
+		nbSeconds += this.weatherService.getNbPagesToDisplay()   * this.secondsPerPageBySection['Weather']   ;
+		nbSeconds += this.eventsService.getNbPagesToDisplay()    * this.secondsPerPageBySection['Events']    ;
+		nbSeconds += this.newsService.getNbPagesToDisplay()      * this.secondsPerPageBySection['News']      ;
+		nbSeconds += this.remindersService.getNbPagesToDisplay() * this.secondsPerPageBySection['Reminders'] ;
+		
+		return nbSeconds ;
+	}
+		
+	getNbPagesToDisplay(section: string) {
 		switch (section) {
-			case 'messages-page':
-				return this.messagesPagesService.getLength() ;
 			case 'events-page':
-				return this.eventsService.getLength() ;
+				var nbPages = this.eventsService.getNbPagesToDisplay() ;
+				break ;
+			case 'messages-page':
+				var nbPages = this.messagesService.getNbPagesToDisplay() ;
+				break ;
 			case 'news-page':
-				return this.newsService.getLength() ;
+				var nbPages = this.newsService.getNbPagesToDisplay() ;
+				break ;
+			case 'reminders-page':
+				var nbPages = this.remindersService.getNbPagesToDisplay() ;
+				break ;
 			case 'weather-page':
-				return this.weatherService.getLength() ;
+				var nbPages = this.weatherService.getNbPagesToDisplay() ;
+				break ;
 		}
+		return nbPages ;
 	}
 
-	setSectionPageIndex(section: string, value: number) {
+	setSectionIndexs(section: string, value: number) {
 		switch (section) {
 			case 'messages-page':
-				this.messagesPagesService.setPageIndex(value) ;
+				this.messagesPagesService.setIndexs(this.messagesService.setIndexs(value)) ;
 				break ;
-
 			case 'events-page':
-				this.eventsService.setPageIndex(value) ;
+				this.eventsService.setIndexs(value) ;
 				break ;
-
 			case 'news-page':
-				this.newsService.setPageIndex(value) ;
+				this.newsService.setIndexs(value) ;
 				break ;
-
+			case 'reminders-page':
+				this.remindersService.setIndexs(value) ;
+				break ;
 			case 'weather-page':
-				this.weatherService.setPageIndex(value) ;
+				this.weatherService.setIndexs(value) ;
 				break ;
 		}
 	}
@@ -95,52 +173,5 @@ export class AppComponent implements OnInit {
 		setTimeout(() => {
 			this.router.navigate([page]) ;
 		}, 0);
-	}
-
-	navigateFirstPage(section: string) {
-		this.setSectionPageIndex(section, 0) ;
-		this.navigate(section) ;
-	}
-
-	autoRouting(timePerSection: number) {
-
-		const counter = Observable.interval(timePerSection).take(this.sections.length - 1) ;
-		
-		var section: string = this.sections[0].autoRouting ;
-		var sectionLength: number = this.getSectionLength(section) ;
-		var timePerPage: number = timePerSection / sectionLength ;
-
-		this.sectionRouting(section, sectionLength, timePerPage) ;
-
-		this.counterSubscription = counter.subscribe(
-			(value : number) => {
-				section = this.sections[value + 1].autoRouting ;
-				sectionLength = this.getSectionLength(section) ;
-				timePerPage = timePerSection / sectionLength ;
-				this.sectionRouting(section, sectionLength, timePerPage) ;
-			},
-			function (err) {
-				console.log('Error: ' + err) ;
-			},
-			function () { console.log("terminé !") }
-		) ;
-	}
-	
-	sectionRouting(section: string, sectionLength: number, timePerPage: number) {
-		
-		const counter = Observable.interval(timePerPage).take(sectionLength - 1) ;
-		
-		this.navigateFirstPage(section) ;
-
-		this.counterSubscription = counter.subscribe(
-			(value : number) => {
-				this.setSectionPageIndex(section, value + 1) ;
-				this.navigate(section) ;
-			},
-			function (err) {
-				console.log('Error: ' + err) ;
-			},
-			function () { console.log("terminé !") }
-		) ;					
 	}
 }

@@ -10,7 +10,7 @@ import { RemindersService } from '../services/reminders.service';
 
 export class RemindersPageComponent {
 
-	serieIndex = 0 ;
+	pageIndex = 0 ;
 
 	hMessage = 'Reminders' ;
 	fMessage = 'Don\'t forget that ! Use the narrows to see other reminders' ;
@@ -28,6 +28,7 @@ export class RemindersPageComponent {
 			}
 		) ;
 		this.remindersService.emitRemindersSubject() ;
+		this.pageIndex = this.remindersService.getPageIndex() ;
 	}
 
 	ngOnDestroy() {
@@ -35,18 +36,18 @@ export class RemindersPageComponent {
 	}
 	
 	isFirstPage() {
-		return this.serieIndex == 0 ;
+		return this.pageIndex == 0 ;
 	}
 	isLastPage() {
-		return this.serieIndex >= this.reminders.length - 1 ;
+		return this.pageIndex >= this.reminders.length - 1 ;
 	}
 
 	onClickLeft() {
-		if (this.serieIndex > 0)
-			this.serieIndex-- ;
+		if (this.pageIndex > 0)
+			this.pageIndex-- ;
 	}
 	onClickRight() {
-		if (this.serieIndex < this.reminders.length)
-			this.serieIndex++ ;
+		if (this.pageIndex < this.reminders.length)
+			this.pageIndex++ ;
 	}
 }

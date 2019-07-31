@@ -12,7 +12,7 @@
 
 	<div class="messages">	
 		<app-message-box style="height:20%"
-						*ngFor="let m of messages[personIndex][messagesSerieIndex]" 
+						*ngFor="let m of messages[personSerieIndex][personIndex][messagesSerieIndex]" 
 						[messText]="m.text"
 						[messStatus]="m.status">
 		</app-message-box>
