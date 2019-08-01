@@ -35,6 +35,7 @@ import { BlankPageComponent } from './blank-page/blank-page.component';
 
 // services
 
+import { GlobalService } from './services/global.service';
 import { HomeService } from './services/home.service';
 
 import { EventsService } from './services/events.service';
@@ -80,7 +81,7 @@ import { WeatherService } from './services/weather.service';
     FormsModule
   ],
   
-  providers: [HomeService, EventsService, MessagesService, MessagesPagesService, NewsService, RemindersService, WeatherService],
+  providers: [GlobalService, HomeService, EventsService, MessagesService, MessagesPagesService, NewsService, RemindersService, WeatherService],
   
   bootstrap: [AppComponent]
 })

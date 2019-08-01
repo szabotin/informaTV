@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
+import { GlobalService } from '../services/global.service';
 import { RemindersService } from '../services/reminders.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class RemindersPageComponent {
 	reminders: any[] ;
 	remindersSubscription: Subscription ;
 	
-	constructor(private remindersService: RemindersService) { }
+	constructor(private globalService: GlobalService, private remindersService: RemindersService) { }
 	
 	ngOnInit() {
 		this.remindersSubscription = this.remindersService.remindersSubject.subscribe(
@@ -34,7 +35,10 @@ export class RemindersPageComponent {
 	ngOnDestroy() {
 		this.remindersSubscription.unsubscribe() ;
 	}
-	
+
+	isAutoRouting() {
+		return this.globalService.getIsAutoRouting() ;
+	}
 	isFirstPage() {
 		return this.pageIndex == 0 ;
 	}

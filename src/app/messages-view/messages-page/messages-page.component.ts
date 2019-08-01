@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MessagesService } from 'src/app/services/messages.service';
 import { MessagesPagesService } from 'src/app/services/messagesPages.service';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
 	selector: 'app-messages-page',
@@ -12,7 +13,6 @@ import { MessagesPagesService } from 'src/app/services/messagesPages.service';
 export class MessagesPageComponent implements OnInit, OnDestroy {
   
 	messagesSerieIndex: number;
-
 	personSerieIndex: number ;
 	personIndex: number ;
 	
@@ -28,7 +28,9 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
 	messages: any[] ;
 	messagesSubscription: Subscription ;
 	
-	constructor(private messagesPagesService: MessagesPagesService, private messagesService: MessagesService) { }
+	constructor(private globalService: GlobalService,
+				private messagesPagesService: MessagesPagesService, 
+				private messagesService: MessagesService) { }
 	
 	ngOnInit() {
 
@@ -65,6 +67,10 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
 		this.messagesPagesSubscription.unsubscribe() ;
 	}
 
+
+	isAutoRouting() {
+		return this.globalService.getIsAutoRouting() ;
+	}
 	isFirstPage() {
 		return this.messagesSerieIndex == 0 ;
 	}

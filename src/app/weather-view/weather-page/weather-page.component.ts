@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
+import { GlobalService } from 'src/app/services/global.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class WeatherPageComponent implements OnInit, OnDestroy {
 	weatherPages: any[] ;
 	weatherPagesSubscription: Subscription ;
 
-	constructor(private weatherService: WeatherService) { }
+	constructor(private globalService: GlobalService, private weatherService: WeatherService) { }
 
 	ngOnInit() {
 
@@ -49,6 +50,9 @@ export class WeatherPageComponent implements OnInit, OnDestroy {
 		this.weatherPagesSubscription.unsubscribe() ;
 	}
 
+	isAutoRouting() {
+		return this.globalService.getIsAutoRouting() ;
+	}
 	isFirstPage() {
 		return this.weatherPageIndex == 0 ;
 	}

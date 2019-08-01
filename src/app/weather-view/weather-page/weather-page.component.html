@@ -5,7 +5,7 @@
 
 <main>
     <div class="arrow-box">
-        <img *ngIf="!isFirstPage()" class="arrow-icon" src="assets/arrow_left.png" (click)=onClickLeft()/>
+        <img *ngIf="!isFirstPage() && !isAutoRouting()" class="arrow-icon" src="assets/arrow_left.png" (click)=onClickLeft()/>
     </div>
 
     <div class="weatherBoxes">	
@@ -21,7 +21,7 @@
     </div>
 
 	<div class="arrow-box">
-        <img *ngIf="!isLastPage()" class="arrow-icon" src="assets/arrow_right.png" (click)=onClickRight()/>
+        <img *ngIf="!isLastPage() && !isAutoRouting()" class="arrow-icon" src="assets/arrow_right.png" (click)=onClickRight()/>
     </div>
 </main>
 

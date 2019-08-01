@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/rx' ;
+import { GlobalService } from './services/global.service';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
 	};
 
 	totalSeconds = 0 ;
-	timeUnitInMilliSeconds = 1000 ;
+	timeUnitInMilliSeconds = 100 ;
 
 	nbSectionsDone = 0 ;
 
@@ -37,7 +38,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
 	counterSubscription: Subscription ;
 
-	constructor(private homeService: HomeService, 
+	constructor(private globalService: GlobalService, 
+				private homeService: HomeService, 
 				private eventsService: EventsService, 
 				private messagesService: MessagesService,
 				private messagesPagesService: MessagesPagesService,
@@ -65,8 +67,10 @@ export class AppComponent implements OnInit, OnDestroy {
 		this.autoRouting() ;
 		
 		setTimeout(() => { // Maybe optimise this ?
-	 		this.router.navigate( ['home-page'] ) ;
+			this.router.navigate( ['home-page'] ) ;
+			this.globalService.setAutoRouting(false) ;
 		}, this.totalSeconds * (this.timeUnitInMilliSeconds + 1)) ;
+
 			
 	}
 
@@ -75,6 +79,8 @@ export class AppComponent implements OnInit, OnDestroy {
 	}		
 
 	autoRouting() {
+		
+		this.globalService.setAutoRouting(true) ;
 		
 		var valueIndex = 0 ;
 		var sectionIndex = 0 ;
