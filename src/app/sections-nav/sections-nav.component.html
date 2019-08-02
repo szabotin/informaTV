@@ -1,0 +1,7 @@
+<div class="nav-section-bar">
+    <app-section-link *ngFor="let l of sectionLinks ; let i = index"
+        [linkText]="l.text"
+        [iconPath]="l.iconPath"
+        [indexSection]="i">
+    </app-section-link>
+</div>

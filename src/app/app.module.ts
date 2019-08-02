@@ -8,71 +8,57 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { MainComponent } from './main/main.component';
+import { SectionsNavComponent } from './sections-nav/sections-nav.component';
+import { SectionLinkComponent } from './sections-nav/section-link/section-link.component';
 
-import { HomePageComponent } from './home-page/home-page.component';
-import { HomeLinkComponent } from './home-page/home-link/home-link.component';
+import { HeaderComponent } from './main/header/header.component';
+import { FooterComponent } from './main/footer/footer.component';
 
-import { EventsViewComponent } from './events-view/events-view.component';
-import { EventsLinkComponent } from './events-view/events-link/events-link.component';
-import { EventsPageComponent } from './events-view/events-page/events-page.component';
-import { MessagesViewComponent } from './messages-view/messages-view.component';
-import { MessagesLinkComponent } from './messages-view/messages-link/messages-link.component';
-import { MessagesPageComponent } from './messages-view/messages-page/messages-page.component';
-import { MessageBoxComponent } from './messages-view/messages-page/message-box/message-box.component';
-import { NewsViewComponent } from './news-view/news-view.component';
-import { NewsLinkComponent } from './news-view/news-link/news-link.component';
-import { NewsPageComponent } from './news-view/news-page/news-page.component';
-import { RemindersPageComponent } from './reminders-page/reminders-page.component';
-import { ReminderBoxComponent } from './reminders-page/reminder-box/reminder-box.component';
-import { WeatherViewComponent } from './weather-view/weather-view.component';
-import { WeatherLinkComponent } from './weather-view/weather-link/weather-link.component';
-import { WeatherPageComponent } from './weather-view/weather-page/weather-page.component';
-import { WeatherBoxComponent } from './weather-view/weather-page/weather-box/weather-box.component';
+import { StartPageComponent } from './main/start-page/start-page.component';
 
-import { BlankPageComponent } from './blank-page/blank-page.component';
+import { EventsComponent } from './main/events/events.component';
+import { MessagesComponent } from './main/messages/messages.component';
+import { MessagesNavComponent } from './main/messages/messages-nav/messages-nav.component';
+import { MessagesLinkComponent } from './main/messages/messages-nav/messages-link/messages-link.component';
+import { MessagesPageComponent } from './main/messages/messages-page/messages-page.component';
+import { NewsComponent } from './main/news/news.component';
+import { RemindersComponent } from './main/reminders/reminders.component';
+import { WeatherComponent } from './main/weather/weather.component';
 
 // services
 
-import { GlobalService } from './services/global.service';
-import { HomeService } from './services/home.service';
-
-import { EventsService } from './services/events.service';
-import { MessagesService } from './services/messages.service';
-import { MessagesPagesService } from './services/messagesPages.service';
-import { NewsService } from './services/news.service';
-import { RemindersService } from './services/reminders.service';
-import { WeatherService } from './services/weather.service';
+import { SectionsNavService } from './services/sectionsNavService';
+import { MessageVideoComponent } from './main/messages/messages-page/message-video/message-video.component';
+import { MessageAudioComponent } from './main/messages/messages-page/message-audio/message-audio.component';
+import { MessageTextComponent } from './main/messages/messages-page/message-text/message-text.component';
+import { MessageBoxComponent } from './main/messages/messages-page/message-text/message-box/message-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
 
+    MainComponent,
+    SectionsNavComponent,
+    SectionLinkComponent,
+    
     HeaderComponent,
     FooterComponent,
 
-    HomePageComponent,
-    HomeLinkComponent,
+    StartPageComponent,
 
-    EventsViewComponent,
-    EventsPageComponent,
-    EventsLinkComponent,
-    MessagesViewComponent,
+    EventsComponent,
+    MessagesComponent,
+    MessagesNavComponent,
     MessagesLinkComponent,
     MessagesPageComponent,
+    MessageTextComponent,
+    MessageAudioComponent,
+    MessageVideoComponent,
+    NewsComponent,
+    RemindersComponent,
+    WeatherComponent,
     MessageBoxComponent,
-    NewsViewComponent,
-    NewsLinkComponent,
-    NewsPageComponent,
-    RemindersPageComponent,
-    ReminderBoxComponent,
-    WeatherViewComponent,
-    WeatherLinkComponent,
-    WeatherPageComponent,
-    WeatherBoxComponent,
-
-    BlankPageComponent
   ],
 
   imports: [
@@ -81,7 +67,7 @@ import { WeatherService } from './services/weather.service';
     FormsModule
   ],
   
-  providers: [GlobalService, HomeService, EventsService, MessagesService, MessagesPagesService, NewsService, RemindersService, WeatherService],
+  providers: [SectionsNavService],
   
   bootstrap: [AppComponent]
 })

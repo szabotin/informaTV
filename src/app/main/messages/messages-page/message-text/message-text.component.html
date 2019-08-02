@@ -1,0 +1,9 @@
+<div class="messages">
+    <template ngFor="let m of messages[personIndex] ; let i = index" > <!-- Does not exist for just Angular 4. With Angular 4 only, use <ng-template> and </ngtemplate> instead -->
+	<app-message-box *ngIf="i >= indexFirstMessageToDisplay && i <= indexLastMessageToDisplay"
+					 [text]="m.text"
+                     [status]="m.status"
+                     [index]="i">
+    </app-message-box>
+    </template>	
+</div>

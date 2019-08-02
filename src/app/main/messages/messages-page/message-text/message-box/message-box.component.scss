@@ -1,0 +1,13 @@
+.messageBox {
+	height: 12vh;
+	padding: /* top */ 1% /* right */ 5% /* bottom */ 1% /* left */ 5% ;
+	margin-bottom: 0;
+	background-color: white;
+	color: black;
+	font-size: 200%;
+	font-weight: 700;
+	border: 2px solid black;
+	display: flex;
+	align-items: center;
+	text-align: left;
+}

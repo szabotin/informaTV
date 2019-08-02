@@ -1,0 +1,11 @@
+div{
+    display: flex;
+    flex-direction: column;
+}
+p {
+    height: 20vh;
+}
+
+.message {
+    flex-grow: 1;
+}
