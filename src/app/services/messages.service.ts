@@ -3,12 +3,14 @@ import { Subject } from 'rxjs/internal/Subject';
 export class MessagesService {
 
     private personIndex: number;
-    private messageIndex: number;
+
+    private firstMessageDisplayed: number;
+    private nbMessagesDisplayed: number;
 
     messagesSubject = new Subject<any[]>() ;
 
     private messages = [ // delete or comment one bracket to delete one item or not
-        [
+        [ // Person
             {
                 date: "30th July 2018", // should be a date format
                 type: "Text",
@@ -21,7 +23,7 @@ export class MessagesService {
                 date: "30th July 2018", // should be a date format
                 type: "Text",
                 status: "Old",
-                text: "Did you see the weather in the TV? The weather will be so well tomorrow. We can see each other in Phoenix Park",
+                text: "Have you seen the weather on the TV? The weather will be so well tomorrow. We can see each other in Phoenix Park",
                 videoSource: "",
                 audioSource: ""
             },
@@ -63,7 +65,7 @@ export class MessagesService {
                 date: "30th July 2018", // should be a date format
                 type: "Text",
                 status: "Old",
-                text: "Hi mum ! I hope you are doing well ! I wanted to inform you that Aoife is pregnant !",
+                text: "Hi mum ! It's Saoirse ! I hope you are doing well ! I wanted to inform you that Aoife is pregnant !",
                 videoSource: "",
                 audioSource: ""
             },
@@ -113,7 +115,7 @@ export class MessagesService {
                 date: "30th July 2018", // should be a date format
                 type: "Text",
                 status: "Old",
-                text: "Hi mum ! I hope you are doing well ! I wanted to inform you that Aoife is pregnant !",
+                text: "Hi mum ! It's Aoife ! I hope you are doing well ! I wanted to inform you that Aoife is pregnant !",
                 videoSource: "",
                 audioSource: ""
             },
@@ -163,7 +165,7 @@ export class MessagesService {
                 date: "30th July 2018", // should be a date format
                 type: "Text",
                 status: "Old",
-                text: "Hi mum ! I hope you are doing well ! I wanted to inform you that Aoife is pregnant !",
+                text: "Hi mum ! It's Conor ! I hope you are doing well ! I wanted to inform you that Aoife is pregnant !",
                 videoSource: "",
                 audioSource: ""
             },
@@ -310,21 +312,28 @@ export class MessagesService {
         ],
     ]
 
-    emitmessagesSubject() {
+    emitMessagesSubject() {
         this.messagesSubject.next(this.messages.slice()) ;
     }
 
-    getMessageIndex() {
-        return this.messageIndex ;
-    }
     getPersonIndex() {
         return this.personIndex ;
     }
-
-    setMessageIndex(index: number) {
-        this.messageIndex = index ;
+    getFirstMessageDisplayed() {
+        return this.firstMessageDisplayed ;
     }
-    setpersonIndex(index: number) {
+    getNbMessagesDisplayed() {
+        return this.nbMessagesDisplayed ;
+    }
+
+    setPersonIndex(index: number) {
         this.personIndex = index ;
+    }
+    setFirstMessageDisplayed(index: number) {
+        this.firstMessageDisplayed = index ;
+    }
+
+    setNbMessagesDisplayed(index: number) {
+        this.nbMessagesDisplayed = index ;
     }
 }

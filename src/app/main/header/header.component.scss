@@ -1,4 +1,13 @@
 header {
     height: 20vh;
-    font-size: 1vw;
-} 
+    color: white;
+    font-size: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header:hover {
+    color: lightsalmon;
+}

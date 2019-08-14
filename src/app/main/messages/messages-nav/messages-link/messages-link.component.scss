@@ -1,5 +1,6 @@
-div {
-    height: 15vh;
+.box {
+    height: 20vh;
+    width: 16vw;
     border: 3px solid black;
     border-radius: 15px;
     background-color: purple;
@@ -10,8 +11,9 @@ div {
     align-items: center;
 }
 
-div:hover {
-    background-color: orange;
+.box:hover {
+    background-color: lightsalmon;
+    color: black;
 }
 
 p{
@@ -19,6 +21,8 @@ p{
     text-align: center;
 }
 img {
-    height: 60%;
-    width: 60%;
+    height: 75%;
+    width: 100%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MessagesPageComponent } from './messages-page.component';
+import { MessagesBlankComponent } from './messages-blank.component';
 
-describe('MessagesPageComponent', () => {
-  let component: MessagesPageComponent;
-  let fixture: ComponentFixture<MessagesPageComponent>;
+describe('MessagesBlankComponent', () => {
+  let component: MessagesBlankComponent;
+  let fixture: ComponentFixture<MessagesBlankComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessagesPageComponent ]
+      declarations: [ MessagesBlankComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MessagesPageComponent);
+    fixture = TestBed.createComponent(MessagesBlankComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,11 @@
+app-message-box {
+	height: 21vh; // for 3 messages displayed -> make it depending on the number of messages
+    margin: 20px 0 20px 0;	
+}
+
+.messages {
+	font-size: 1vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

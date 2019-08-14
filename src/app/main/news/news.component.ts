@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  headerMessage = "Car accident" ;
-  footerMessage = "Click on what you want to see" ;
+  headerText = "Car accident" ;
+  footerText = "Click on what you want to see" ;
 
   constructor() { }
 

@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsComponent implements OnInit {
 
-  headerMessage = "Aoife will come this afternoon" ;
-  footerMessage = "Click on what you want to see" ;
+  headerText = "Aoife will come this afternoon" ;
+  footerText = "Click on what you want to see" ;
   
   constructor() { }
 

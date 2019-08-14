@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemindersComponent implements OnInit {
  
-  headerMessage = "Reminders" ;
-  footerMessage = "Click on what you want to see" ;
+  headerText = "Reminders" ;
+  footerText = "Click on what you want to see" ;
  
   constructor() { }
 

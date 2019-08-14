@@ -9,22 +9,31 @@ import { MessagesNavService } from 'src/app/services/messagesNav.service';
 })
 export class MessagesNavComponent implements OnInit, OnDestroy {
 
-  messagesLinks: any[] ;
-	messagesLinksSubscription: Subscription ;
+	personLinks: any[] ;
+	personLinksSubscription: Subscription ;
+
+	firstPersonLink: number;
+	lastPersonLink: number;
+	nbPersonLinks: number;
 	
 	constructor(private messagesNavService: MessagesNavService) {}
 
 	ngOnInit() {
-		this.messagesLinksSubscription = this.messagesNavService.linksSubject.subscribe(
+		this.personLinksSubscription = this.messagesNavService.linksSubject.subscribe(
             (links: any[]) => {
-              	this.messagesLinks = links ;
+              	this.personLinks = links ;
             }
 		);
 		this.messagesNavService.emitLinksSubject() ;
+		
+		this.messagesNavService.setNumberPersonLinks(4);
+
+		this.firstPersonLink = this.messagesNavService.getFirstPersonLink();
+		this.lastPersonLink = this.firstPersonLink + this.messagesNavService.getNumberPersonLinks();
 	}
 
 	ngOnDestroy() {
-		this.messagesLinksSubscription.unsubscribe() ;
-  }
+		this.personLinksSubscription.unsubscribe() ;
+  	}
 
 }

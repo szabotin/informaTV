@@ -1,13 +1,18 @@
-<app-messages-nav> </app-messages-nav>
+<div class="all">
+    <app-messages-nav> </app-messages-nav>
 
-<app-header 
-    [headerMessage]="headerMessage">
-</app-header>
+    <div class="center">
+        <app-header 
+            [headerText]="headerText">
+        </app-header>
 
-<div>
-    <app-message-page> </app-message-page>
+        <app-message-text *ngIf="messageType==='Text'">
+        </app-message-text>
+        
+        <app-message-audio *ngIf="messageType==='Audio'">
+        </app-message-audio>
+        
+        <app-message-video *ngIf="messageType==='Video'">
+        </app-message-video>
+    </div>
 </div>
-
-<app-footer   
-    [footerMessage]="footerMessage">
-</app-footer>

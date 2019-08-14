@@ -1,0 +1,9 @@
+<div class="messages">
+    <ng-container *ngFor="let m of messages[personIndex]; let i = index"> <!-- <ng-container> available since angular 6 -->
+        <app-message-box *ngIf="i >= firstMessageDisplayed && i < lastMessageDisplayed"
+                        [mText]="m.text"
+                        [mStatus]="m.status"
+                        [index]="i">
+        </app-message-box>
+    </ng-container>	
+</div>

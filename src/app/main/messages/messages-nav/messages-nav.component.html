@@ -1,7 +1,9 @@
 <div class="nav-bar">
-    <app-section-link *ngFor="let pl of pageLinks ; let i = index"
-        [name]="pl.name"
-        [avatarPath]="pl.avatarPath"
-        [personIndex]="i">
-    </app-section-link>
+    <ng-container *ngFor="let pl of personLinks ; let i = index">    
+        <app-messages-link  *ngIf="i < lastPersonLink"
+            [name]="pl.name"
+            [avatarPath]="pl.avatarPath"
+            [personIndex]="i">
+        </app-messages-link>
+    </ng-container>
 </div>

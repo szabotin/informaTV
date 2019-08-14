@@ -2,7 +2,9 @@ import { Subject } from 'rxjs/internal/Subject';
 
 export class SectionsNavService {
 
-    linksSubject = new Subject<any[]>() ;
+    private firstPersonLink: number;
+
+    linksSubject = new Subject<any[]>();
 
     private links = [ // delete or comment one bracket to delete one item or not
         {
@@ -30,9 +32,9 @@ export class SectionsNavService {
             routing: 'weather', // refer to the app-routing.module.ts
             iconPath: 'assets/home/weather.png'
         }
-    ] ;
+    ];
 
     emitLinksSubject() {
-        this.linksSubject.next(this.links.slice()) ;
+        this.linksSubject.next(this.links.slice());
     }
 }

@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherComponent implements OnInit {
 
-  headerMessage = "Weather for today" ;
-  footerMessage = "Click on what you want to see" ;
+  headerText = "Weather for today" ;
+  footerText = "Click on what you want to see" ;
 
   constructor() { }
 

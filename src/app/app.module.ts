@@ -21,7 +21,10 @@ import { EventsComponent } from './main/events/events.component';
 import { MessagesComponent } from './main/messages/messages.component';
 import { MessagesNavComponent } from './main/messages/messages-nav/messages-nav.component';
 import { MessagesLinkComponent } from './main/messages/messages-nav/messages-link/messages-link.component';
-import { MessagesPageComponent } from './main/messages/messages-page/messages-page.component';
+import { MessageTextComponent } from './main/messages/message-text/message-text.component';
+import { MessageBoxComponent } from './main/messages/message-text/message-box/message-box.component';
+import { MessageAudioComponent } from './main/messages/message-audio/message-audio.component';
+import { MessageVideoComponent } from './main/messages/message-video/message-video.component';
 import { NewsComponent } from './main/news/news.component';
 import { RemindersComponent } from './main/reminders/reminders.component';
 import { WeatherComponent } from './main/weather/weather.component';
@@ -29,10 +32,9 @@ import { WeatherComponent } from './main/weather/weather.component';
 // services
 
 import { SectionsNavService } from './services/sectionsNavService';
-import { MessageVideoComponent } from './main/messages/messages-page/message-video/message-video.component';
-import { MessageAudioComponent } from './main/messages/messages-page/message-audio/message-audio.component';
-import { MessageTextComponent } from './main/messages/messages-page/message-text/message-text.component';
-import { MessageBoxComponent } from './main/messages/messages-page/message-text/message-box/message-box.component';
+import { MessagesService } from './services/messages.service';
+import { MessagesNavService } from './services/messagesNav.service';
+import { MessagesBlankComponent } from './main/messages/messages-blank/messages-blank.component';
 
 @NgModule({
   declarations: [
@@ -51,14 +53,14 @@ import { MessageBoxComponent } from './main/messages/messages-page/message-text/
     MessagesComponent,
     MessagesNavComponent,
     MessagesLinkComponent,
-    MessagesPageComponent,
     MessageTextComponent,
+    MessageBoxComponent,
     MessageAudioComponent,
     MessageVideoComponent,
     NewsComponent,
     RemindersComponent,
     WeatherComponent,
-    MessageBoxComponent,
+    MessagesBlankComponent,
   ],
 
   imports: [
@@ -67,7 +69,7 @@ import { MessageBoxComponent } from './main/messages/messages-page/message-text/
     FormsModule
   ],
   
-  providers: [SectionsNavService],
+  providers: [SectionsNavService, MessagesService, MessagesNavService],
   
   bootstrap: [AppComponent]
 })
