@@ -45,7 +45,7 @@ export class MessageTextComponent implements OnInit {
 			(messages: any[]) => {
 				this.messages = messages;
 			}
-			);
+		);
 		this.messagesService.emitMessagesSubject();
 
 		// Display the header text depends on the person
@@ -56,10 +56,9 @@ export class MessageTextComponent implements OnInit {
 		this.hText = 'Messages with ' + this.name;
 		this.fText = 'Here are your messages with ' + this.name + '. Use the arrows to see others messages';
 
-		this.messagesService.setNbMessagesDisplayed(3);
-
 		this.firstMessageDisplayed = this.messagesService.getFirstMessageDisplayed();
-		this.lastMessageDisplayed = this.firstMessageDisplayed + this.messagesService.getNbMessagesDisplayed();
+		
+		this.lastMessageDisplayed = this.firstMessageDisplayed + this.messagesService.getNbMessagesMaxDisplayed();
 	}
 
 	ngOnDestroy() {
@@ -86,6 +85,4 @@ export class MessageTextComponent implements OnInit {
 		if (this.messagesSerieIndex < this.messages.length)
 			this.messagesSerieIndex++;
 	} */
-
-
 }

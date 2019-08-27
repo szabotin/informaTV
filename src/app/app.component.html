@@ -1,5 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<app-main> </app-main>
+<div class="nav-section-bar">
+    <li routerLinkActive="highlight" [routerLink]="l.routing" *ngFor="let l of sections ; let i = index" class = "box" (click)="onClick()">
+        <a> {{l.title}} </a>
+        <img [src]="l.iconPath" />
+    </li>
+</div>
 
-<app-sections-nav> </app-sections-nav>
+<router-outlet> </router-outlet>

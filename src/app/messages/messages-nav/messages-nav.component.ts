@@ -9,8 +9,8 @@ import { MessagesNavService } from 'src/app/services/messagesNav.service';
 })
 export class MessagesNavComponent implements OnInit, OnDestroy {
 
-	personLinks: any[] ;
-	personLinksSubscription: Subscription ;
+	personLinks: any[];
+	personLinksSubscription: Subscription;
 
 	firstPersonLink: number;
 	lastPersonLink: number;
@@ -21,10 +21,10 @@ export class MessagesNavComponent implements OnInit, OnDestroy {
 	ngOnInit() {
 		this.personLinksSubscription = this.messagesNavService.linksSubject.subscribe(
             (links: any[]) => {
-              	this.personLinks = links ;
+              	this.personLinks = links;
             }
 		);
-		this.messagesNavService.emitLinksSubject() ;
+		this.messagesNavService.emitLinksSubject();
 		
 		this.messagesNavService.setNumberPersonLinks(4);
 
@@ -33,7 +33,6 @@ export class MessagesNavComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy() {
-		this.personLinksSubscription.unsubscribe() ;
+		this.personLinksSubscription.unsubscribe();
   	}
-
 }

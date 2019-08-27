@@ -1,6 +1,6 @@
 <div class="nav-bar">
     <ng-container *ngFor="let pl of personLinks ; let i = index">    
-        <app-messages-link  *ngIf="i < lastPersonLink"
+        <app-messages-link *ngIf="i >= firstPersonLink && i < lastPersonLink"
             [name]="pl.name"
             [avatarPath]="pl.avatarPath"
             [personIndex]="i">

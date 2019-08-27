@@ -5,6 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './message-box.component.html',
   styleUrls: ['./message-box.component.scss']
 })
+
 export class MessageBoxComponent implements OnInit {
 
 	@Input() mText: string;
@@ -14,5 +15,4 @@ export class MessageBoxComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
 }

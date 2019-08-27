@@ -2,39 +2,54 @@ import { Subject } from 'rxjs/internal/Subject';
 
 export class SectionsNavService {
 
-    private firstPersonLink: number;
+    sectionsSubject = new Subject<any[]>();
 
-    linksSubject = new Subject<any[]>();
-
-    private links = [ // delete or comment one bracket to delete one item or not
+    private sections = [ // here are the section-link details. You can add or delete one section easily
         {
-            text: "Events",
+            title: "Events",
             routing: 'events', // refer to the app-routing.module.ts
-            iconPath: 'assets/home/cal.png'
+            iconPath: 'assets/home/cal.png',
+            selected: false
         },
         {
-            text: "Messages",
+            title: "Messages",
             routing: 'messages', // refer to the app-routing.module.ts
-            iconPath: 'assets/home/mess.png'
+            iconPath: 'assets/home/mess.png',
+            selected: false
         },
         {
-            text: "News",
+            title: "News",
             routing: 'news', // refer to the app-routing.module.ts
-            iconPath: 'assets/home/news.png'
+            iconPath: 'assets/home/news.png',
+            selected: false
         },
-        {
-            text: "Reminders",
+        /*{
+            title: "Reminders",
             routing: 'reminders', // refer to the app-routing.module.ts
-            iconPath: 'assets/home/memo.png'
-        },
+            iconPath: 'assets/home/memo.png',
+            selected: false
+        },*/
         {
-            text: "Weather",
+            title: "Weather",
             routing: 'weather', // refer to the app-routing.module.ts
-            iconPath: 'assets/home/weather.png'
+            iconPath: 'assets/home/weather.png',
+            selected: false
         }
     ];
 
     emitLinksSubject() {
-        this.linksSubject.next(this.links.slice());
+        this.sectionsSubject.next(this.sections.slice());
+    }
+
+    select(index: number) { // always see all the indexes. May just set selected = 0 to the previous selected and set 1 for the new.
+        this.sections[index].selected = true;
+        
+        for (var i = 0 ; i < this.sections.length ; i++) {
+            if (this.sections[i].selected && i != index) {
+                this.sections[i].selected = false;
+            } 
+        }
+
+        this.emitLinksSubject() ;
     }
 }

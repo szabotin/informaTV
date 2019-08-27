@@ -49,5 +49,4 @@ export class MessagesComponent implements OnInit {
 
 		this.headerText = "Messages with " + this.persons[personIndex].name;
 	}
-
 }
