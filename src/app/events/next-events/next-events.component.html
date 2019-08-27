@@ -1,0 +1,20 @@
+<app-header 
+    [headerText]="headerText">
+</app-header>
+
+<div class="center">
+    <div class="timeBox"> 
+        <p class="boxTitle"> Time </p>
+        <p> {{eventTime}} </p>
+    </div>
+    
+    <div class="categoryBox"> 
+        <p class="boxTitle"> Category </p>
+        <img [src]="categorySource"/>
+    </div>
+    
+    <div class="descriptionBox"> 
+        <p class="boxTitle"> Description </p>
+        <p class="categoryDescription"> {{eventDescription}} </p>
+    </div>
+</div>

@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
 		) ;
 		this.sectionsNavService.emitLinksSubject();
 
-		this.router.navigate(['start']);
+		this.router.navigate(['events']);
 
 		this.messagesService.setNbMessagesMaxDisplayed(3);
 		

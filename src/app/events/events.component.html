@@ -1,0 +1,9 @@
+<div class="all">
+    <div class="nav-time-bar">
+        <li routerLinkActive="highlight" [routerLink]="tl.routing" *ngFor="let tl of timeLinks ; let i = index" class = "box" (click)="onClick()">
+            {{tl.time}}
+        </li>
+    </div>
+    
+    <router-outlet name="eventsPage"> </router-outlet>
+</div>

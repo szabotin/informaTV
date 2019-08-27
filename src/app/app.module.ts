@@ -15,7 +15,10 @@ import { FooterComponent } from './main/footer/footer.component';
 
 import { StartPageComponent } from './main/start-page/start-page.component';
 
-import { EventsComponent } from './main/events/events.component';
+import { EventsComponent } from './events/events.component';
+import { NextEventsComponent } from './events/next-events/next-events.component';
+import { NextWeekEventsComponent } from './events/next-week-events/next-week-events.component';
+import { AfterEventsComponent } from './events/after-events/after-events.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessagesNavComponent } from './messages/messages-nav/messages-nav.component';
 import { MessagesLinkComponent } from './messages/messages-nav/messages-link/messages-link.component';
@@ -31,6 +34,7 @@ import { WeatherComponent } from './main/weather/weather.component';
 import { SectionsNavService } from './services/sectionsNavService';
 import { MessagesService } from './services/messages.service';
 import { MessagesNavService } from './services/messagesNav.service';
+import { EventsService } from './services/events.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,10 @@ import { MessagesNavService } from './services/messagesNav.service';
     NewsComponent,
     RemindersComponent,
     WeatherComponent,
-    MessagesBlankComponent
+    MessagesBlankComponent,
+    NextEventsComponent,
+    NextWeekEventsComponent,
+    AfterEventsComponent,
   ],
 
   imports: [
@@ -61,8 +68,9 @@ import { MessagesNavService } from './services/messagesNav.service';
     FormsModule
   ],
   
-  providers: [SectionsNavService, MessagesService, MessagesNavService],
+  providers: [SectionsNavService, MessagesService, MessagesNavService, EventsService],
   
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {}
