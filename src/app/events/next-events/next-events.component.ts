@@ -16,7 +16,7 @@ export class NextEventsComponent implements OnInit {
 
 	constructor() { }
 
-	ngOnInit() {
+	ngOnInit() { // have to be linked to the events in the events.service.ts
 		this.headerText = "Event";
 		this.categorySource = "assets/events/categoryIcons/weather.png";
 		this.eventTime = "8.00pm";

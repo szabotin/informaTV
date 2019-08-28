@@ -1,10 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
 <div class="nav-section-bar">
-    <li routerLinkActive="highlight" [routerLink]="l.routing" *ngFor="let l of sections ; let i = index" class = "box" (click)="onClick()">
+    <li routerLinkActive="highlight" [routerLink]="l.routing" *ngFor="let l of sections ; let i = index" (click)="onClick(l.routing)">
         <a> {{l.title}} </a>
         <img [src]="l.iconPath" />
     </li>
 </div>
 
-<router-outlet> </router-outlet>
+<div class="section">
+    <router-outlet> </router-outlet>
+</div>

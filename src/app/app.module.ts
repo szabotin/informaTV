@@ -19,22 +19,27 @@ import { EventsComponent } from './events/events.component';
 import { NextEventsComponent } from './events/next-events/next-events.component';
 import { NextWeekEventsComponent } from './events/next-week-events/next-week-events.component';
 import { AfterEventsComponent } from './events/after-events/after-events.component';
+
 import { MessagesComponent } from './messages/messages.component';
 import { MessagesNavComponent } from './messages/messages-nav/messages-nav.component';
 import { MessagesLinkComponent } from './messages/messages-nav/messages-link/messages-link.component';
 import { MessageTextComponent } from './messages/message-text/message-text.component';
 import { MessageBoxComponent } from './messages/message-text/message-box/message-box.component';
 import { MessagesBlankComponent } from './messages/messages-blank/messages-blank.component';
-import { NewsComponent } from './main/news/news.component';
+
+import { NewsComponent } from './news/news.component';
+import { NewsPageComponent } from './news/news-page/news-page.component';
+
 import { RemindersComponent } from './main/reminders/reminders.component';
 import { WeatherComponent } from './main/weather/weather.component';
 
 // services
 
 import { SectionsNavService } from './services/sectionsNavService';
+import { EventsService } from './services/events.service';
 import { MessagesService } from './services/messages.service';
 import { MessagesNavService } from './services/messagesNav.service';
-import { EventsService } from './services/events.service';
+import { NewsService } from './services/news.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +65,7 @@ import { EventsService } from './services/events.service';
     NextEventsComponent,
     NextWeekEventsComponent,
     AfterEventsComponent,
+    NewsPageComponent,
   ],
 
   imports: [
@@ -68,7 +74,7 @@ import { EventsService } from './services/events.service';
     FormsModule
   ],
   
-  providers: [SectionsNavService, MessagesService, MessagesNavService, EventsService],
+  providers: [SectionsNavService, MessagesService, MessagesNavService, EventsService, NewsService],
   
   bootstrap: [AppComponent]
 })

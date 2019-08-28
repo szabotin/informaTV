@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
 
 		this.messagesService.setNbMessagesMaxDisplayed(3);
 		
-		this.autoRouting();
+		//this.autoRouting();
 	}
 
 	autoRouting() {
@@ -187,8 +187,8 @@ export class AppComponent implements OnInit {
 		}
 	}
 
-	onClick() {
+	onClick(routing) {
 	 	this.sectionsNavService.select(this.sectionIndex);
-		this.initIndexs(this.routing);
+		this.initIndexs(routing);
 	}
 }

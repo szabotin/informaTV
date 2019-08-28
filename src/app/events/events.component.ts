@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { EventsService } from '../services/events.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -11,7 +12,7 @@ import { EventsService } from '../services/events.service';
 export class EventsComponent implements OnInit {
 	timeLinks: any[];
 	timeLinksSubscription: Subscription;
-	constructor(private eventsService: EventsService) {}
+	constructor(private eventsService: EventsService, private router: Router) {}
 
 	ngOnInit() {
 
@@ -21,5 +22,8 @@ export class EventsComponent implements OnInit {
 			}
 		);
 		this.eventsService.emitTimeLinksSubject();
+	}
+
+	onClick() {
 	}
 }

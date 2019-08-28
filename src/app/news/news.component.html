@@ -1,0 +1,13 @@
+<div class="all">
+    <div class="nav-categories-bar">
+        <li routerLinkActive="highlight" [routerLink]="news-page" *ngFor="let cl of categoryLinks ; let i = index" (click)="onClick()">
+            <p> {{cl.category}} </p>
+            <img [src]="cl.iconPath" />
+        </li>
+       
+    </div>
+
+    <div class="news">
+        <router-outlet> </router-outlet>
+    </div>
+</div>

@@ -1,1 +1,22 @@
-<p>after-events works!</p>
+<app-header
+    [headerText]="headerText">
+</app-header>
+
+<div class="center">
+    <div class="row">
+        <div class="eventBox" id="timeBox"> 
+            <p class="boxTitle"> Time </p>
+            <p id="time"> {{eventTime}} </p>
+        </div>
+
+        <div class="eventBox" id="categoryBox"> 
+            <p class="boxTitle"> Category </p>
+            <img class="down catIcon" [src]="categorySource"/>
+        </div>
+    </div>
+    
+    <div class="eventBox descriptionBox"> 
+        <p class="boxTitle"> Description </p>
+        <p id="description"> {{eventDescription}} </p>
+    </div>
+</div>
