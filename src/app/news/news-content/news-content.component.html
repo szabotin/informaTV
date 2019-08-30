@@ -1,0 +1,17 @@
+<div class="all">
+    <app-header
+        [headerText]="title">
+    </app-header>
+
+    <div class="content">
+        <img class="photo" [src]="photoPath" />
+        
+        <div class="text">
+            {{text}}
+        </div>
+    </div>
+
+    <div class="nav-news-bar">
+        <img class="newsPhoto" [src]="n.photoPath" routerLinkActive="highlight" [routerLink]="link" *ngFor="let n of news[categoryIndex] ; let i = index" (click)="onClick()" />
+    </div>
+</div>

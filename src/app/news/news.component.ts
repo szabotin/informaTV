@@ -10,21 +10,22 @@ import { NewsService } from '../services/news.service';
 
 export class NewsComponent implements OnInit {
 
-	categoryLinks: any[];
-	categoryLinksSubscription: Subscription;
+	categories: any[];
+	categorySubscription: Subscription;
   
 	constructor(private newsService: NewsService) {}
 
 	ngOnInit() {
-		this.categoryLinksSubscription = this.newsService.categoriesSubject.subscribe(
+		this.categorySubscription = this.newsService.categoriesSubject.subscribe(
 			(categories: any[]) => {
-				this.categoryLinks = categories;
+				this.categories = categories;
 			}
 		);
 		this.newsService.emitCategoriesSubject();
 	}
 
-	onClick() {
+	onClick(index: number) {
+		this.newsService.setCategoryIndex(index);
+		this.newsService.setNewsIndex(0);
 	}
-
 }

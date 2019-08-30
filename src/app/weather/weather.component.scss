@@ -3,19 +3,17 @@
     flex-direction: row;
 }
 
-.catIcon {
+.weather {
+    width: 66vw;
+}
+
+img {
     height: 70%;
     width: 60%;
 }
 
-.center {
-    display: flex;
-    flex-direction: column;
-}
-
 li {
     height: 20%;
-    width: 15vw;
     padding: 10px;
     border: 3px solid black;
     border-radius: 15px;
@@ -24,7 +22,6 @@ li {
     font-size: 1.5vw;
     font-weight: bold;
     display: flex;
-    flex-direction: column;
     text-align: center;
 	justify-content: center; // horizontal align
     align-items: center; // vertical align
@@ -36,7 +33,7 @@ li:hover, .highlight {
     border: black;
 }
 
-.nav-categories-bar {
+.nav-time-bar {
     height: 100vh;
     width: 16vw;
     padding-top: 1vh;
@@ -44,8 +41,4 @@ li:hover, .highlight {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.news {
-    height: 56vh;
 }

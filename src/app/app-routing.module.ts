@@ -12,10 +12,12 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessagesBlankComponent } from './messages/messages-blank/messages-blank.component';
 
 import { NewsComponent } from './news/news.component';
-import { NewsPageComponent } from './news/news-page/news-page.component';
+import { NewsContentComponent } from './news/news-content/news-content.component';
 
-import { RemindersComponent } from './main/reminders/reminders.component';
-import { WeatherComponent } from './main/weather/weather.component';
+import { WeatherComponent } from './weather/weather.component';
+import { OneComponent } from './weather/one/one.component';
+import { ThreeComponent } from './weather/three/three.component';
+import { WeekComponent } from './weather/week/week.component';
 
 const routes: Routes = [
 	{ path: 'start', component: StartPageComponent },
@@ -30,11 +32,18 @@ const routes: Routes = [
 	{ path: 'messages-blank', component: MessagesBlankComponent },
 	
 	{ path: 'news', component: NewsComponent, children: [
-		{ path: 'news-page', component: NewsPageComponent }
+		{ path: 'world', component: NewsContentComponent }, // put the same number of children as numbers of categories
+		{ path: 'ireland', component: NewsContentComponent },
+		{ path: 'sports', component: NewsContentComponent },
+		{ path: 'music', component: NewsContentComponent }
 	]},
-	
-	{ path: 'reminders', component: RemindersComponent },
-	{ path: 'weather', component: WeatherComponent },
+
+	{ path: 'weather', component: WeatherComponent, children: [
+		{ path: 'one-box', component: OneComponent },
+		{ path: 'three-boxes', component: ThreeComponent },
+		{ path: 'week', component: WeekComponent },
+	]},
+
 	{ path: '**', component: StartPageComponent },
 	{ path: '', component: StartPageComponent }
 ];

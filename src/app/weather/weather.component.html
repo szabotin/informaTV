@@ -1,0 +1,14 @@
+<div class="all">
+    <div class="nav-time-bar">
+        <li routerLinkActive="highlight" [routerLink]="tl.routing" *ngFor="let tl of timeLinks ; let i = index" (click)="onClick()">
+            {{tl.time}}
+        </li>
+    </div>
+
+    <div class="weather">
+        <app-header
+            [headerText]="headerText">
+        </app-header>
+        <router-outlet> </router-outlet>
+    </div>
+</div>

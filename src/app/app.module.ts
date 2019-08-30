@@ -28,10 +28,9 @@ import { MessageBoxComponent } from './messages/message-text/message-box/message
 import { MessagesBlankComponent } from './messages/messages-blank/messages-blank.component';
 
 import { NewsComponent } from './news/news.component';
-import { NewsPageComponent } from './news/news-page/news-page.component';
+import { NewsContentComponent } from './news/news-content/news-content.component';
 
-import { RemindersComponent } from './main/reminders/reminders.component';
-import { WeatherComponent } from './main/weather/weather.component';
+import { WeatherComponent } from './weather/weather.component';
 
 // services
 
@@ -40,43 +39,52 @@ import { EventsService } from './services/events.service';
 import { MessagesService } from './services/messages.service';
 import { MessagesNavService } from './services/messagesNav.service';
 import { NewsService } from './services/news.service';
+import { WeatherService } from './services/weather.service';
+import { OneComponent } from './weather/one/one.component';
+import { ThreeComponent } from './weather/three/three.component';
+import { WeekComponent } from './weather/week/week.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
+	declarations: [
+		AppComponent,
 
-    MainComponent,
-    
-    HeaderComponent,
-    FooterComponent,
+		MainComponent,
+		
+		HeaderComponent,
+		FooterComponent,
 
-    StartPageComponent,
+		StartPageComponent,
 
-    EventsComponent,
-    MessagesComponent,
-    MessagesNavComponent,
-    MessagesLinkComponent,
-    MessageTextComponent,
-    MessageBoxComponent,
-    NewsComponent,
-    RemindersComponent,
-    WeatherComponent,
-    MessagesBlankComponent,
-    NextEventsComponent,
-    NextWeekEventsComponent,
-    AfterEventsComponent,
-    NewsPageComponent,
-  ],
+		EventsComponent,
+		NextEventsComponent,
+		NextWeekEventsComponent,
+		AfterEventsComponent,
+		
+		MessagesComponent,
+		MessagesNavComponent,
+		MessagesLinkComponent,
+		MessageTextComponent,
+		MessageBoxComponent,
+		MessagesBlankComponent,
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule, 
-    FormsModule
-  ],
-  
-  providers: [SectionsNavService, MessagesService, MessagesNavService, EventsService, NewsService],
-  
-  bootstrap: [AppComponent]
+		NewsComponent,
+		NewsContentComponent,
+		
+		WeatherComponent,
+		OneComponent,
+		ThreeComponent,
+		WeekComponent,
+	],
+
+	imports: [
+		BrowserModule,
+		AppRoutingModule, 
+		FormsModule
+	],
+	
+	providers: [SectionsNavService, MessagesService, MessagesNavService, EventsService, NewsService, WeatherService],
+	
+	bootstrap: [AppComponent]
 })
 
 export class AppModule {}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsService } from 'src/app/services/events.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-next-events',
@@ -14,13 +16,26 @@ export class NextEventsComponent implements OnInit {
 	eventTime: string;
 	eventDescription: string;
 
-	constructor() { }
+	events: any[];
+	eventSubscription: Subscription;
 
-	ngOnInit() { // have to be linked to the events in the events.service.ts
-		this.headerText = "Event";
-		this.categorySource = "assets/events/categoryIcons/weather.png";
-		this.eventTime = "8.00pm";
-		this.eventDescription = "Aoife will come this evening !";
+	constructor(private eventsService: EventsService) {}
+
+	ngOnInit() {
+		this.eventSubscription = this.eventsService.eventsSubject.subscribe(
+			(events: any[]) => {
+				this.events = events;
+			}
+		);
+		this.eventsService.emitEventsSubject();
+
+		var eventSerieIndex = this.eventsService.getEventSerieIndex();
+		var eventIndex = this.eventsService.getEventIndex();
+		
+		this.headerText = this.events[eventSerieIndex][eventIndex].title;
+
+		this.categorySource = this.events[eventSerieIndex][eventIndex].catIconPath;
+		this.eventTime = this.events[eventSerieIndex][eventIndex].time;
+		this.eventDescription = this.events[eventSerieIndex][eventIndex].description;
 	}
-
 }

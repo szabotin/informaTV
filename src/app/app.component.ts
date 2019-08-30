@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
 
 		this.messagesService.setNbMessagesMaxDisplayed(3);
 		
-		//this.autoRouting();
+		// this.autoRouting();
 	}
 
 	autoRouting() {

@@ -1,0 +1,54 @@
+.all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+app-header {
+    width: 66vw;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-news-bar {
+    height: 20vh;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.newsPhoto {
+    height: 72%;
+    width: 15%;
+    margin: 4%;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+.newsPhoto:hover, .highlight {
+    border-color: lightsalmon;
+}
+
+.photo {
+    height: 25vh;
+    width: 27vw;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+.text {
+    height: 50vh;
+    width: 32vw;
+    margin-left: 30px;
+    border: 3px solid black;
+    border-radius: 15px;
+    background-color: purple;
+    color: white;
+}
