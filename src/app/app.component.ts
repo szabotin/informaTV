@@ -23,13 +23,13 @@ export class AppComponent implements OnInit, OnDestroy {
 	secondsPerPageBySection:any = {
 		Messages: 1, // for the names, it refers to the title of the links in home.service
 		Weather: 1,
-		Reminders: 1,
-		News: 1,
-		Events: 1
+		Reminders: 6,
+		News: 3,
+		Events: 4
 	};
 
 	totalSeconds = 0 ;
-	timeUnitInMilliSeconds = 100 ;
+	timeUnitInMilliSeconds = 750 ;
 
 	nbSectionsDone = 0 ;
 
@@ -62,6 +62,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		
 		this.totalSeconds = this.getNbSecondsToDisplayAll() ;
 
+		this.router.navigate(['home-page']) ;
 		this.router.navigate(['blank-page']) ;
 		
 		this.autoRouting() ;
