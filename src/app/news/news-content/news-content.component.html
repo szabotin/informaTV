@@ -4,14 +4,14 @@
     </app-header>
 
     <div class="content">
-        <img class="photo" [src]="photoPath" />
+        <img class="item-border photo" [src]="photoPath" />
         
-        <div class="text">
+        <div class="text item">
             {{text}}
         </div>
     </div>
 
     <div class="nav-news-bar">
-        <img class="newsPhoto" [src]="n.photoPath" routerLinkActive="highlight" [routerLink]="link" *ngFor="let n of news[categoryIndex] ; let i = index" (click)="onClick()" />
+        <img class="newsPhoto item-border" [src]="n.photoPath" routerLinkActive="item-border-highlight" [routerLink]="link" *ngFor="let n of news[categoryIndex] ; let i = index" (click)="onClick()" />
     </div>
 </div>

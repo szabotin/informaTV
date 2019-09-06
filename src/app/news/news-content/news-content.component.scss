@@ -28,18 +28,12 @@ app-header {
     height: 72%;
     width: 15%;
     margin: 4%;
-    border: 3px solid black;
     border-radius: 15px;
-}
-
-.newsPhoto:hover, .highlight {
-    border-color: lightsalmon;
 }
 
 .photo {
     height: 25vh;
     width: 27vw;
-    border: 3px solid black;
     border-radius: 15px;
 }
 
@@ -47,8 +41,5 @@ app-header {
     height: 50vh;
     width: 32vw;
     margin-left: 30px;
-    border: 3px solid black;
     border-radius: 15px;
-    background-color: purple;
-    color: white;
 }

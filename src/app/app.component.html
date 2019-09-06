@@ -1,5 +1,5 @@
 <div class="nav-section-bar">
-    <li routerLinkActive="highlight" [routerLink]="l.routing" *ngFor="let l of sections ; let i = index" (click)="onClick(l.routing)">
+    <li class="item" routerLinkActive="item-highlight" [routerLink]="l.routing" *ngFor="let l of sections ; let i = index" (click)="onClick(l.routing)">
         <a> {{l.title}} </a>
         <img [src]="l.iconPath" />
     </li>

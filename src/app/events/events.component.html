@@ -1,6 +1,6 @@
 <div class="all">
     <div class="nav-time-bar">
-        <li routerLinkActive="highlight" [routerLink]="tl.routing" *ngFor="let tl of timeLinks ; let i = index" (click)="onClick(i)">
+        <li class="item" routerLinkActive="item-highlight" [routerLink]="tl.routing" *ngFor="let tl of timeLinks ; let i = index" (click)="onClick(i)">
             {{tl.time}}
         </li>
     </div>

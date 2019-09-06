@@ -6,3 +6,24 @@ app-root {
     display: flex;
     flex-direction: row-reverse;
 }
+
+.item {
+    border: 3px solid black;
+    background-color: rgb(197, 255, 202);
+    color: black;
+    font-weight: bold;
+}
+
+.item:hover, .item-highlight {
+    background-color: rgb(255, 140, 112);
+    color: black;
+    border: black;
+}
+
+.item-border {
+    border: 3px solid black;
+}
+
+.item-border:hover, .item-border-highlight {
+    border-color: lightsalmon;
+}

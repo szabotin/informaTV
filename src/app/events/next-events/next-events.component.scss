@@ -17,7 +17,6 @@
 
 .center {
     padding: 2vh;
-    color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,9 +28,8 @@
     width: 20vw;
     margin-right: 5vw;
     margin-left: 5vw;
-    border: 5px solid black;
+    border: 5px solid;
     border-radius: 15px;
-    background-color: purple;
     display: flex;
     flex-direction: column;
     align-content: space-around;

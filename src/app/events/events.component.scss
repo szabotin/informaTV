@@ -15,22 +15,13 @@ img {
 li {
     height: 20%;
     padding: 10px;
-    border: 3px solid black;
     border-radius: 15px;
-    background-color: purple;
-    color: white;
     font-size: 1.5vw;
     font-weight: bold;
     display: flex;
     text-align: center;
 	justify-content: center; // horizontal align
     align-items: center; // vertical align
-}
-
-li:hover, .highlight {
-    background-color: lightsalmon;
-    color: black;
-    border: black;
 }
 
 .nav-time-bar {

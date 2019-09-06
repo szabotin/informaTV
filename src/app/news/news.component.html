@@ -1,7 +1,8 @@
 <div class="all">
 
     <div class="nav-categories-bar">
-        <li *ngFor="let cl of categories; let i = index" 
+        <li class = "item"
+            *ngFor="let cl of categories; let i = index" 
             [routerLink]="categories.routing" 
             (click)="onClick(i)">
 
